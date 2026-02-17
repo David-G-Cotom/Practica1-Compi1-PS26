@@ -1,0 +1,272 @@
+/***************************************** PACKAGES AND IMPORTS *****************************************/
+package com.example.practica1_compi1_ps26.data.analyzers;
+
+import java_cup.runtime.*;
+
+import java.util.*;
+
+/***************************************** CUP *****************************************/
+class Parser;
+
+parser code {:
+    // Utils
+    Lexer lex;
+    private ArrayList<String> syntaxErrors;
+
+    // Parser and Lexer Connection
+    public parser(Lexer lex) {
+        super(lex);
+        this.lex = lex;
+        this.syntaxErrors = new ArrayList<>();
+    }
+
+    // Getters
+    public Lexer getLexer() {
+        return this.lex;
+    }
+
+    public ArrayList<String> getSyntaxErrors() {
+        return this.syntaxErrors;
+    }
+
+    // Overwrite error methods
+    public void syntax_error(Symbol cur_token) {
+        StringBuilder mssBuilder = new StringBuilder("Símbolo: ");
+        mssBuilder.append(symbl_name_from_id(cur_token.sym));
+
+        if (cur_token.value != null) {
+            mssBuilder.append(", lexema <");
+            mssBuilder.append(cur_token.value.toString());
+            mssBuilder.append(">");
+        }
+        mssBuilder.append(", línea: ");
+        mssBuilder.append(cur_token.left);
+        mssBuilder.append(", columna: ");
+        mssBuilder.append(cur_token.right);
+
+        if (expected_token_ids().isEmpty()) {
+            mssBuilder.append(" -- No se esperaba ningún símbolo");
+        } else {
+            mssBuilder.append(" -- Se esperaba [");
+            for (Integer expected_token_id : expected_token_ids()) {
+                if (!symbl_name_from_id(expected_token_id).equals("error")) {
+                    mssBuilder.append(symbl_name_from_id(expected_token_id));
+                    mssBuilder.append(" ");
+                }
+            }
+            mssBuilder.append("]");
+        }
+        this.syntaxErrors.add(mssBuilder.toString());
+    }
+
+    public void report_error(String message, Object info) {
+        try {
+            Symbol cur_token = (Symbol) info;
+            StringBuilder mssBuilder = new StringBuilder("Símbolo: ");
+            mssBuilder.append(symbl_name_from_id(cur_token.sym));
+            mssBuilder.append(", línea: ");
+            mssBuilder.append(cur_token.left);
+            mssBuilder.append(", columna: ");
+            mssBuilder.append(cur_token.right);
+            if (cur_token != null) {
+                mssBuilder.append(", Lexema: ");
+                mssBuilder.append(cur_token.value);
+            }
+
+            if (message != null) {
+                mssBuilder.append(", Info: ");
+                mssBuilder.append(message);
+            }
+
+            this.syntaxErrors.add(mssBuilder.toString());
+        } catch (Exception e) {
+            this.syntaxErrors.add(message);
+        }
+    }
+
+    public void unrecovered_syntax_error(Symbol cur_token) {
+        this.syntaxErrors.add("Errores de sintaxis severos detectados, revisa minuciosamente el código.");
+    }
+:}
+
+/***************************************** DECLARATIONS *****************************************/
+// Tokens - Terminales
+terminal SEPARADOR, INICIO, FIN;
+terminal SI, ENTONCES, FINSI;
+terminal MIENTRAS, HACER, FINMIENTRAS;
+terminal VAR, MOSTRAR, LEER;
+terminal ELIPSE, CIRCULO, PARALELOGRAMO, RECTANGULO, ROMBO, RECTANGULO_REDONDEADO;
+terminal ARIAL, TIME_NEW_ROMAN, COMIC_SANS, VERDANA;
+terminal IGUALDAD, DIFERENTE, MAYOR, MENOR, MAYOR_IGUAL, MENOR_IGUAL;
+terminal AND, OR, NOT;
+terminal SUMA, RESTA, MULTIPLICACION, DIVISION, PARENTESIS_ABIERTO, PARENTESIS_CERRADO;
+terminal IGUAL, COMA, PIPE;
+terminal DEFAULT;
+terminal COLOR_TEXTO_SI, COLOR_SI, FIGURA_SI, LETRA_SI, LETRA_SIZE_SI;
+terminal COLOR_TEXTO_MIENTRAS, COLOR_MIENTRAS, FIGURA_MIENTRAS, LETRA_MIENTRAS, LETRA_SIZE_MIENTRAS;
+terminal COLOR_TEXTO_BLOQUE, COLOR_BLOQUE, FIGURA_BLOQUE, LETRA_BLOQUE, LETRA_SIZE_BLOQUE;
+terminal HEXADECIMAL;
+terminal NUMERO_ENTERO, NUMERO_DECIMAL, ID;
+terminal TEXTO;
+
+// No Terminales
+non terminal fuente_entrada, parte1;
+non terminal contenido_codigo, instruccion_codigo;
+non terminal bloque, contenido_bloque;
+non terminal si, mientras, variable, leer, asignacion, mostrar, mensaje;
+non terminal operacion_lra, operacion_and, operacion_not, operacion_relacional, operacion_matematica;
+non terminal operador_relacional, operador_sr, operador_md;
+non terminal t, f, g;
+non terminal contenido_configuracion, instruccion_configuracion;
+non terminal instruccion_default;
+non terminal instruccion_color_texto_si;
+non terminal instruccion_color_si;
+non terminal instruccion_figura_si;
+non terminal instruccion_letra_si;
+non terminal instruccion_letra_size_si;
+non terminal instruccion_color_texto_mientras;
+non terminal instruccion_color_mientras;
+non terminal instruccion_figura_mientras;
+non terminal instruccion_letra_mientras;
+non terminal instruccion_letra_size_mientras;
+non terminal instruccion_color_texto_bloque;
+non terminal instruccion_color_bloque;
+non terminal instruccion_figura_bloque;
+non terminal instruccion_letra_bloque;
+non terminal instruccion_letra_size_bloque;
+non terminal color, rgb;
+non terminal nombre_figura, nombre_letra;
+
+/***************************************** PRECEDENCES *****************************************/
+
+/***************************************** GRAMMAR *****************************************/
+start with fuente_entrada;
+
+fuente_entrada ::= parte1 SEPARADOR contenido_configuracion;
+
+parte1 ::= INICIO contenido_codigo FIN;
+
+contenido_codigo ::= contenido_codigo instruccion_codigo |
+                     instruccion_codigo;
+
+instruccion_codigo ::= si |
+                       mientras |
+                       bloque;
+
+bloque ::= variable |
+           mostrar |
+           leer;
+
+contenido_bloque ::= contenido_bloque bloque |
+                     bloque;
+
+variable ::= VAR ID asignacion |
+             ID IGUAL operacion_matematica;
+
+asignacion ::= IGUAL operacion_matematica |
+               /* empty */;
+
+si ::= SI PARENTESIS_ABIERTO operacion_lra PARENTESIS_CERRADO ENTONCES contenido_bloque FINSI;
+
+operacion_lra ::= operacion_lra OR operacion_and |
+                  operacion_and;
+
+operacion_and ::= operacion_and AND operacion_not |
+                  operacion_not;
+
+operacion_not ::= NOT operacion_lra |
+                  operacion_relacional;
+
+operacion_relacional ::= operacion_matematica operador_relacional operacion_matematica |
+                         operacion_matematica;
+
+operacion_matematica ::= operacion_matematica operador_sr t|
+                         t;
+
+t ::= t operador_md f|
+    f;
+
+f ::= PARENTESIS_ABIERTO g|
+      NUMERO_DECIMAL |
+      NUMERO_ENTERO |
+      ID;
+
+g ::= operacion_matematica PARENTESIS_CERRADO|
+      operacion_lra PARENTESIS_CERRADO |
+      operacion_relacional PARENTESIS_CERRADO;
+
+mientras ::= MIENTRAS PARENTESIS_ABIERTO operacion_lra PARENTESIS_CERRADO HACER contenido_bloque FINMIENTRAS;
+
+mostrar ::= MOSTRAR mensaje;
+
+mensaje ::= TEXTO | ID;
+
+leer ::= LEER ID;
+
+contenido_configuracion ::= contenido_configuracion instruccion_configuracion |
+                            instruccion_configuracion;
+
+instruccion_configuracion ::= instruccion_default |
+                              instruccion_color_texto_si |
+                              instruccion_color_si |
+                              instruccion_figura_si |
+                              instruccion_letra_si |
+                              instruccion_letra_size_si |
+                              instruccion_color_texto_mientras |
+                              instruccion_color_mientras |
+                              instruccion_figura_mientras |
+                              instruccion_letra_mientras |
+                              instruccion_letra_size_mientras |
+                              instruccion_color_texto_bloque |
+                              instruccion_color_bloque |
+                              instruccion_figura_bloque |
+                              instruccion_letra_bloque |
+                              instruccion_letra_size_bloque;
+
+instruccion_default ::= DEFAULT IGUAL NUMERO_ENTERO;
+
+instruccion_color_texto_si ::= COLOR_TEXTO_SI IGUAL color PIPE NUMERO_ENTERO;
+instruccion_color_si ::= COLOR_SI IGUAL color PIPE NUMERO_ENTERO;
+instruccion_figura_si ::= FIGURA_SI IGUAL nombre_figura PIPE NUMERO_ENTERO;
+instruccion_letra_si ::= LETRA_SI IGUAL nombre_letra PIPE NUMERO_ENTERO;
+instruccion_letra_size_si ::= LETRA_SIZE_SI IGUAL operacion_matematica PIPE NUMERO_ENTERO;
+
+instruccion_color_texto_mientras ::= COLOR_TEXTO_MIENTRAS IGUAL color PIPE NUMERO_ENTERO;
+instruccion_color_mientras ::= COLOR_MIENTRAS IGUAL color PIPE NUMERO_ENTERO;
+instruccion_figura_mientras ::= FIGURA_MIENTRAS IGUAL nombre_figura PIPE NUMERO_ENTERO;
+instruccion_letra_mientras ::= LETRA_MIENTRAS IGUAL nombre_letra PIPE NUMERO_ENTERO;
+instruccion_letra_size_mientras ::= LETRA_SIZE_MIENTRAS IGUAL operacion_matematica PIPE NUMERO_ENTERO;
+
+instruccion_color_texto_bloque ::= COLOR_TEXTO_BLOQUE IGUAL color PIPE NUMERO_ENTERO;
+instruccion_color_bloque ::= COLOR_BLOQUE IGUAL color PIPE NUMERO_ENTERO;
+instruccion_figura_bloque ::= FIGURA_BLOQUE IGUAL nombre_figura PIPE NUMERO_ENTERO;
+instruccion_letra_bloque ::= LETRA_BLOQUE IGUAL nombre_letra PIPE NUMERO_ENTERO;
+instruccion_letra_size_bloque ::= LETRA_SIZE_BLOQUE IGUAL operacion_matematica PIPE NUMERO_ENTERO;
+
+color ::= rgb |
+          HEXADECIMAL;
+
+rgb ::= operacion_matematica COMA operacion_matematica COMA operacion_matematica;
+
+operador_relacional ::= IGUALDAD |
+                        DIFERENTE |
+                        MAYOR |
+                        MENOR |
+                        MAYOR_IGUAL |
+                        MENOR_IGUAL;
+
+operador_sr ::= SUMA | RESTA;
+
+operador_md ::= MULTIPLICACION | DIVISION;
+
+nombre_figura ::= ELIPSE |
+                  CIRCULO |
+                  PARALELOGRAMO |
+                  RECTANGULO |
+                  ROMBO |
+                  RECTANGULO_REDONDEADO;
+
+nombre_letra ::= ARIAL |
+                 TIME_NEW_ROMAN |
+                 COMIC_SANS |
+                 VERDANA;
