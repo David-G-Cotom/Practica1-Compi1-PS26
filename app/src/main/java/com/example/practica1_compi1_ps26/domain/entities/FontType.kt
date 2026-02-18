@@ -1,4 +1,4 @@
-package com.example.practica1_compi1_ps26.domain.models
+package com.example.practica1_compi1_ps26.domain.entities
 
 enum class FontType(val value: String) {
     ARIAL("Arial"),

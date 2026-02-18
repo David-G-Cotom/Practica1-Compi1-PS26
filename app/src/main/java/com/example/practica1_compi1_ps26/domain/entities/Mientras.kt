@@ -1,0 +1,35 @@
+package com.example.practica1_compi1_ps26.domain.entities
+
+class Mientras(
+    generalId: Number,
+    specificId: Number,
+    textColor: String = "fff",
+    figureColor: String = "f80",
+    figureName: FigureType = FigureType.ROMBO,
+    font: FontType = FontType.TIMES_NEW_ROMAN,
+    fontSize: Number = 14,
+    content: String
+): Component(
+    generalId,
+    specificId,
+    textColor,
+    figureColor,
+    figureName,
+    font,
+    fontSize,
+    content
+) {
+
+    override fun returnFinalValue(): String {
+        return "Mientras"
+    }
+
+    override fun setDefaultValues() {
+        this.textColor = "fff"
+        this.figureColor = "f80"
+        this.figureName = FigureType.ROMBO
+        this.font = FontType.TIMES_NEW_ROMAN
+        this.fontSize = 14
+    }
+
+}

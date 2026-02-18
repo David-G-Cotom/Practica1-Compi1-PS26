@@ -1,0 +1,35 @@
+package com.example.practica1_compi1_ps26.domain.entities
+
+class Inicio(
+    generalId: Number,
+    specificId: Number,
+    textColor: String = "fff",
+    figureColor: String = "4caf50",
+    figureName: FigureType = FigureType.ELIPSE,
+    font: FontType = FontType.TIMES_NEW_ROMAN,
+    fontSize: Number = 18,
+    content: String
+): Component(
+    generalId,
+    specificId,
+    textColor,
+    figureColor,
+    figureName,
+    font,
+    fontSize,
+    content
+) {
+
+    override fun returnFinalValue(): String {
+        return "Inicio"
+    }
+
+    override fun setDefaultValues() {
+        this.textColor = "fff"
+        this.figureColor = "4caf50"
+        this.figureName = FigureType.ELIPSE
+        this.font = FontType.TIMES_NEW_ROMAN
+        this.fontSize = 18
+    }
+
+}
