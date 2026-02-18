@@ -100,7 +100,7 @@ ID = _?{Letter}({Letter}|_|{WholeNumber})*
     "RECTANGULO_REDONDEADO"   { return symbol(sym.RECTANGULO_REDONDEADO); }
 
     "ARIAL"                   { return symbol(sym.ARIAL); }
-    "TIME_NEW_ROMAN"          { return symbol(sym.TIME_NEW_ROMAN); }
+    "TIMES_NEW_ROMAN"          { return symbol(sym.TIMES_NEW_ROMAN); }
     "COMIC_SANS"              { return symbol(sym.COMIC_SANS); }
     "VERDANA"                 { return symbol(sym.VERDANA); }
 
