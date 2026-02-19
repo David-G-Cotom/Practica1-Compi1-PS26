@@ -3,21 +3,22 @@ package com.example.practica1_compi1_ps26.domain.entities
 class Si(
     generalId: Number,
     specificId: Number,
+    content: String,
+    blockContent: Bloque,
     textColor: String = "fff",
     figureColor: String = "f80",
     figureName: FigureType = FigureType.ROMBO,
     font: FontType = FontType.TIMES_NEW_ROMAN,
-    fontSize: Number = 14,
-    content: String
+    fontSize: Number = 14
 ): Component(
     generalId,
     specificId,
+    content,
     textColor,
     figureColor,
     figureName,
     font,
-    fontSize,
-    content
+    fontSize
 ) {
 
     override fun returnFinalValue(): String {

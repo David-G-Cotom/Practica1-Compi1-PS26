@@ -5,6 +5,9 @@ import java_cup.runtime.*;
 
 import java.util.*;
 
+import com.example.practica1_compi1_ps26.domain.entities.*;
+import com.example.practica1_compi1_ps26.domain.ParserUtilities;
+
 /***************************************** CUP *****************************************/
 class Parser;
 
@@ -12,12 +15,16 @@ parser code {:
     // Utils
     Lexer lex;
     private ArrayList<String> syntaxErrors;
+    private ArrayList<Component> components;
+    private ParserUtilities parserUtilities;
 
     // Parser and Lexer Connection
     public parser(Lexer lex) {
         super(lex);
         this.lex = lex;
         this.syntaxErrors = new ArrayList<>();
+        this.components = new ArrayList<>();
+        this.parserUtilities = new ParserUtilities();
     }
 
     // Getters
@@ -27,6 +34,15 @@ parser code {:
 
     public ArrayList<String> getSyntaxErrors() {
         return this.syntaxErrors;
+    }
+
+    public ArrayList<Component> getComponents() {
+        return this.components;
+    }
+
+    // Method to add an component to the list
+    public void addComponent(Component component) {
+        this.components.add(component);
     }
 
     // Overwrite error methods
@@ -91,32 +107,41 @@ parser code {:
 
 /***************************************** DECLARATIONS *****************************************/
 // Tokens - Terminales
-terminal SEPARADOR, INICIO, FIN;
+terminal SEPARADOR;
 terminal SI, ENTONCES, FINSI;
 terminal MIENTRAS, HACER, FINMIENTRAS;
-terminal VAR, MOSTRAR, LEER;
 terminal ELIPSE, CIRCULO, PARALELOGRAMO, RECTANGULO, ROMBO, RECTANGULO_REDONDEADO;
 terminal ARIAL, TIMES_NEW_ROMAN, COMIC_SANS, VERDANA;
-terminal IGUALDAD, DIFERENTE, MAYOR, MENOR, MAYOR_IGUAL, MENOR_IGUAL;
-terminal AND, OR, NOT;
-terminal SUMA, RESTA, MULTIPLICACION, DIVISION, PARENTESIS_ABIERTO, PARENTESIS_CERRADO;
-terminal IGUAL, COMA, PIPE;
+terminal SUMA, RESTA, MULTIPLICACION, DIVISION;
+terminal COMA, PIPE;
 terminal DEFAULT;
 terminal COLOR_TEXTO_SI, COLOR_SI, FIGURA_SI, LETRA_SI, LETRA_SIZE_SI;
 terminal COLOR_TEXTO_MIENTRAS, COLOR_MIENTRAS, FIGURA_MIENTRAS, LETRA_MIENTRAS, LETRA_SIZE_MIENTRAS;
 terminal COLOR_TEXTO_BLOQUE, COLOR_BLOQUE, FIGURA_BLOQUE, LETRA_BLOQUE, LETRA_SIZE_BLOQUE;
 terminal HEXADECIMAL;
-terminal NUMERO_ENTERO, NUMERO_DECIMAL, ID;
 terminal TEXTO;
 
+terminal String INICIO, FIN;
+terminal String VAR, MOSTRAR, LEER;
+terminal String IGUALDAD, DIFERENTE, MAYOR, MENOR, MAYOR_IGUAL, MENOR_IGUAL;
+terminal String AND, OR, NOT;
+terminal String PARENTESIS_ABIERTO, PARENTESIS_CERRADO;
+terminal String IGUAL;
+terminal String ID;
+terminal Double NUMERO_ENTERO, NUMERO_DECIMAL;
+
 // No Terminales
-non terminal fuente_entrada, parte1;
-non terminal contenido_codigo, instruccion_codigo;
-non terminal bloque, contenido_bloque;
-non terminal si, mientras, variable, leer, asignacion, mostrar, mensaje;
-non terminal operacion_lra, operacion_and, operacion_not, operacion_relacional, operacion_matematica;
-non terminal operador_relacional, operador_sr, operador_md;
-non terminal t, f, g;
+non terminal ArrayList<Component> s, fuente_entrada, parte1, contenido_codigo;
+non terminal Component instruccion_codigo, si, mientras;
+non terminal ArrayList<String> contenido_bloque;
+non terminal String bloque, variable, leer, mostrar, asignacion, mensaje;
+non terminal String operacion_lra, operacion_and, operacion_not, operacion_relacional, operacion_matematica_literal;
+non terminal String operador_relacional;
+non terminal String tl, fl, gl;
+non terminal Double operacion_matematica_numerica;
+non terminal Double tn, fn, gn;
+
+non terminal operador_sr, operador_md;
 non terminal contenido_configuracion, instruccion_configuracion;
 non terminal instruccion_default;
 non terminal instruccion_color_texto_si;
@@ -142,66 +167,154 @@ non terminal nombre_figura, nombre_letra;
 /***************************************** GRAMMAR *****************************************/
 start with fuente_entrada;
 
-fuente_entrada ::= parte1 SEPARADOR contenido_configuracion;
+s ::= fuente_entrada:f {:
+        for (Component component : f) {
+            if (component instanceof Si si) {
+                System.out.println(si.toString());
+                System.out.println(si.blockContent.toString());
+                addComponent(si);
+                addComponent(si.blockContent);
+            } else if (component instanceof Mientras mientras) {
+                System.out.println(mientras.toString());
+                System.out.println(mientras.blockContent.toString());
+                addComponent(mientras);
+                addComponent(mientras.blockContent);
+            } else {
+                System.out.println(component.toString());
+                addComponent(component);
+            }
+        }
+        RESULT = f;
+    :};
 
-parte1 ::= INICIO contenido_codigo FIN;
+fuente_entrada ::= parte1:p1 SEPARADOR contenido_configuracion {: RESULT = p1; :};
 
-contenido_codigo ::= contenido_codigo instruccion_codigo |
-                     instruccion_codigo;
+parte1 ::= INICIO:i contenido_codigo:cc FIN:f {:
+            cc.add(0, new Inicio(0, 0, i));
+            cc.add(new Fin(parser.parserUtilities.updateGeneralId(), 0, f));
+            RESULT = cc;
+        :};
 
-instruccion_codigo ::= si |
-                       mientras |
-                       bloque;
+contenido_codigo ::= contenido_codigo:cc instruccion_codigo:ic {:
+                        cc.add(ic);
+                        RESULT = cc;
+                    :} |
+                    instruccion_codigo:ic {:
+                        ArrayList<Component> list = new ArrayList<>();
+                        list.add(ic);
+                        RESULT = list;
+                    :};
 
-bloque ::= variable |
-           mostrar |
-           leer;
+instruccion_codigo ::= si:s {: RESULT = s; :} |
+                       mientras:m {: RESULT = m; :} |
+                       contenido_bloque:cb {: RESULT = parser.parserUtilities.generateBloque(cb); :};
 
-contenido_bloque ::= contenido_bloque bloque |
-                     bloque;
+contenido_bloque ::= contenido_bloque:cb bloque:b {:
+                        cb.add(b);
+                        RESULT = cb;
+                    :} |
+                     bloque:b {:
+                        ArrayList<String> list = new ArrayList<>();
+                        list.add(b);
+                        RESULT = list;
+                    :};
 
-variable ::= VAR ID asignacion |
-             ID IGUAL operacion_matematica;
+bloque ::= variable:v {: RESULT = v; :} |
+           mostrar:m {: RESULT = m; :} |
+           leer:l {: RESULT = l; :};
 
-asignacion ::= IGUAL operacion_matematica |
-               /* empty */;
+variable ::= VAR:var ID:id asignacion:a {: RESULT = var + " " + id + " " + a; :} |
+             ID:id IGUAL:i operacion_matematica_literal:o {: RESULT = id + " " + i + " " + o; :};
 
-si ::= SI PARENTESIS_ABIERTO operacion_lra PARENTESIS_CERRADO ENTONCES contenido_bloque FINSI;
+asignacion ::= IGUAL:i operacion_matematica_literal:o {: RESULT = i + " " + o; :} |
+               /* empty */ {: RESULT = ""; :};
 
-operacion_lra ::= operacion_lra OR operacion_and |
-                  operacion_and;
+si ::= SI PARENTESIS_ABIERTO operacion_lra:o PARENTESIS_CERRADO ENTONCES contenido_bloque:cb FINSI {:
+            RESULT = new Si(parser.parserUtilities.updateGeneralId(), parser.parserUtilities.updateIdSi(), o, parser.parserUtilities.generateBloque(cb));
+        :};
 
-operacion_and ::= operacion_and AND operacion_not |
-                  operacion_not;
+operacion_lra ::= operacion_lra:olra OR:o operacion_and:oand {: RESULT = olra + " " + o + " " + oand; :} |
+                  operacion_and:oand {: RESULT = oand; :};
 
-operacion_not ::= NOT operacion_lra |
-                  operacion_relacional;
+operacion_and ::= operacion_and:oand AND:a operacion_not:onot {: REULT = oand + " " + a + " " + onot; :} |
+                  operacion_not:onot {: RESULT onot; :};
 
-operacion_relacional ::= operacion_matematica operador_relacional operacion_matematica |
-                         operacion_matematica;
+operacion_not ::= NOT:n operacion_lra:olra {: RESULT = n + olra; :} |
+                  operacion_relacional:or {: RESULT = or; :} ;
 
-operacion_matematica ::= operacion_matematica operador_sr t|
-                         t;
+operacion_relacional ::= operacion_matematica_literal:om1 operador_relacional:or operacion_matematica_literal:om2 {:
+                            RESULT = om1 + " " + or + " " + om2;
+                        :} |
+                         operacion_matematica_literal:om {: RESULT = om; :};
 
-t ::= t operador_md f|
-    f;
+operacion_matematica_literal ::= operacion_matematica_literal:om operador_sr:osr tl:t {:
+                                    String operador;
+                                    if (osr.equals(sym.SUMA)) {
+                                        operador = "+";
+                                    } else {
+                                        operador = "-";
+                                    }
+                                    RESULT = om + " " + operador + " " + t;
+                                :} |
+                                tl:t {: RESULT = t; :};
 
-f ::= PARENTESIS_ABIERTO g|
-      NUMERO_DECIMAL |
-      NUMERO_ENTERO |
-      ID;
+tl ::= tl:t operador_md:omd fl:f {:
+            String operador;
+            if (omd.equals(sym.MULTIPLICACION)) {
+                operador = "*";
+            } else {
+                operador = "/";
+            }
+            RESULT = t + " " + operador + " " + f;
+        :} |
+        fl:f {: RESULT = f; :};
 
-g ::= operacion_matematica PARENTESIS_CERRADO|
-      operacion_lra PARENTESIS_CERRADO |
-      operacion_relacional PARENTESIS_CERRADO;
+fl ::= PARENTESIS_ABIERTO:pa gl:g {: RESULT = pa + g; :} |
+      NUMERO_DECIMAL:n {: RESULT = n; :} |
+      NUMERO_ENTERO:n {: RESULT = n; :} |
+      ID:id {: RESULT = id; :};
 
-mientras ::= MIENTRAS PARENTESIS_ABIERTO operacion_lra PARENTESIS_CERRADO HACER contenido_bloque FINMIENTRAS;
+gl ::= operacion_matematica_literal:oml PARENTESIS_CERRADO:pc {: RESULT = oml + pc; :} |
+      operacion_lra:olra PARENTESIS_CERRADO:pc {: RESULT = olra + pc; :} |
+      operacion_relacional:or PARENTESIS_CERRADO:pc {: RESULT = or + pc; :};
 
-mostrar ::= MOSTRAR mensaje;
+operacion_matematica_numerica ::= operacion_matematica_numerica:om operador_sr:osr tn:t {:
+                                        if (osr.equals(sym.SUMA)) {
+                                            RESULT = om + t;
+                                        } else {
+                                            RESULT = om - t;
+                                        }
+                                    :} |
+                                tn:t {: RESULT = t; :};
 
-mensaje ::= TEXTO | ID;
+tn ::= tn:t operador_md:omd fn:f {:
+            if (omd.equals(sym.MULTIPLICACION)) {
+                RESULT = t * f;
+            } else {
+                if (f == 0) {
+                    // Reportar la DIvisioon entre Cero
+                    RESULT = 0;
+                } else {
+                    RESULT = t / f;
+                }
+            }
+        :} |
+        fn:f {: RESULT = f; :};
 
-leer ::= LEER ID;
+fn ::= PARENTESIS_ABIERTO operacion_matematica_numerica:om PARENTESIS_CERRADO {: RESULT = om; :} |
+        NUMERO_DECIMAL:n {: RESULT = n; :} |
+        NUMERO_ENTERO:n {: RESULT = n; :};
+
+mientras ::= MIENTRAS PARENTESIS_ABIERTO operacion_lra:o PARENTESIS_CERRADO HACER contenido_bloque:cb FINMIENTRAS {:
+                RESULT = new Mientras(parser.parserUtilities.updateGeneralId(), parser.parserUtilities.updateIdMientras(), o, parser.parserUtilities.generateBloque(cb));
+            :};
+
+mostrar ::= MOSTRAR:mostrar mensaje:mensaje {: RESULT = mostrar + " " + mensaje; :};
+
+mensaje ::= TEXTO:t {: RESULT = "\"" + t + "\""; :} |
+            ID:id {: RESULT = id; :};
+
+leer ::= LEER:l ID:id {: RESULT = l + " " + id; :};
 
 contenido_configuracion ::= contenido_configuracion instruccion_configuracion |
                             instruccion_configuracion;
@@ -229,31 +342,31 @@ instruccion_color_texto_si ::= COLOR_TEXTO_SI IGUAL color PIPE NUMERO_ENTERO;
 instruccion_color_si ::= COLOR_SI IGUAL color PIPE NUMERO_ENTERO;
 instruccion_figura_si ::= FIGURA_SI IGUAL nombre_figura PIPE NUMERO_ENTERO;
 instruccion_letra_si ::= LETRA_SI IGUAL nombre_letra PIPE NUMERO_ENTERO;
-instruccion_letra_size_si ::= LETRA_SIZE_SI IGUAL operacion_matematica PIPE NUMERO_ENTERO;
+instruccion_letra_size_si ::= LETRA_SIZE_SI IGUAL operacion_matematica_numerica PIPE NUMERO_ENTERO;
 
 instruccion_color_texto_mientras ::= COLOR_TEXTO_MIENTRAS IGUAL color PIPE NUMERO_ENTERO;
 instruccion_color_mientras ::= COLOR_MIENTRAS IGUAL color PIPE NUMERO_ENTERO;
 instruccion_figura_mientras ::= FIGURA_MIENTRAS IGUAL nombre_figura PIPE NUMERO_ENTERO;
 instruccion_letra_mientras ::= LETRA_MIENTRAS IGUAL nombre_letra PIPE NUMERO_ENTERO;
-instruccion_letra_size_mientras ::= LETRA_SIZE_MIENTRAS IGUAL operacion_matematica PIPE NUMERO_ENTERO;
+instruccion_letra_size_mientras ::= LETRA_SIZE_MIENTRAS IGUAL operacion_matematica_numerica PIPE NUMERO_ENTERO;
 
 instruccion_color_texto_bloque ::= COLOR_TEXTO_BLOQUE IGUAL color PIPE NUMERO_ENTERO;
 instruccion_color_bloque ::= COLOR_BLOQUE IGUAL color PIPE NUMERO_ENTERO;
 instruccion_figura_bloque ::= FIGURA_BLOQUE IGUAL nombre_figura PIPE NUMERO_ENTERO;
 instruccion_letra_bloque ::= LETRA_BLOQUE IGUAL nombre_letra PIPE NUMERO_ENTERO;
-instruccion_letra_size_bloque ::= LETRA_SIZE_BLOQUE IGUAL operacion_matematica PIPE NUMERO_ENTERO;
+instruccion_letra_size_bloque ::= LETRA_SIZE_BLOQUE IGUAL operacion_matematica_numerica PIPE NUMERO_ENTERO;
 
 color ::= rgb |
           HEXADECIMAL;
 
-rgb ::= operacion_matematica COMA operacion_matematica COMA operacion_matematica;
+rgb ::= operacion_matematica_numerica COMA operacion_matematica_numerica COMA operacion_matematica_numerica;
 
-operador_relacional ::= IGUALDAD |
-                        DIFERENTE |
-                        MAYOR |
-                        MENOR |
-                        MAYOR_IGUAL |
-                        MENOR_IGUAL;
+operador_relacional ::= IGUALDAD:i {: RESULT = i; :} |
+                        DIFERENTE:d {: RESULT = d; :} |
+                        MAYOR:m {: RESULT = m; :} |
+                        MENOR:m {: RESULT = m; :} |
+                        MAYOR_IGUAL:mi {: RESULT = mi; :} |
+                        MENOR_IGUAL:mi {: RESULT = mi; :};
 
 operador_sr ::= SUMA | RESTA;
 

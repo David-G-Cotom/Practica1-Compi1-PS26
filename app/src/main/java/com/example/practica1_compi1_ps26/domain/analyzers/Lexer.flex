@@ -77,8 +77,8 @@ ID = _?{Letter}({Letter}|_|{WholeNumber})*
 // Default State
 <YYINITIAL> {
     "%%%%"                    { return symbol(sym.SEPARADOR); }
-    "INICIO"                  { return symbol(sym.INICIO); }
-    "FIN"                     { return symbol(sym.FIN); }
+    "INICIO"                  { return symbol(sym.INICIO, yytext()); }
+    "FIN"                     { return symbol(sym.FIN, yytext()); }
 
     "SI"                      { return symbol(sym.SI); }
     "ENTONCES"                { return symbol(sym.ENTONCES); }
@@ -88,9 +88,9 @@ ID = _?{Letter}({Letter}|_|{WholeNumber})*
     "HACER"                   { return symbol(sym.HACER); }
     "FINMIENTRAS"             { return symbol(sym.FINMIENTRAS); }
 
-    "VAR"                     { return symbol(sym.VAR); }
-    "MOSTRAR"                 { return symbol(sym.MOSTRAR); }
-    "LEER"                    { return symbol(sym.LEER); }
+    "VAR"                     { return symbol(sym.VAR, yytext()); }
+    "MOSTRAR"                 { return symbol(sym.MOSTRAR, yytext()); }
+    "LEER"                    { return symbol(sym.LEER, yytext()); }
 
     "ELIPSE"                  { return symbol(sym.ELIPSE); }
     "CIRCULO"                 { return symbol(sym.CIRCULO); }
@@ -104,25 +104,25 @@ ID = _?{Letter}({Letter}|_|{WholeNumber})*
     "COMIC_SANS"              { return symbol(sym.COMIC_SANS); }
     "VERDANA"                 { return symbol(sym.VERDANA); }
 
-    "==" { return symbol(sym.IGUALDAD); }
-    "!=" { return symbol(sym.DIFERENTE); }
-    ">"  { return symbol(sym.MAYOR); }
-    "<"  { return symbol(sym.MENOR); }
-    ">=" { return symbol(sym.MAYOR_IGUAL); }
-    "<=" { return symbol(sym.MENOR_IGUAL); }
+    "==" { return symbol(sym.IGUALDAD, yytext()); }
+    "!=" { return symbol(sym.DIFERENTE, yytext()); }
+    ">"  { return symbol(sym.MAYOR, yytext()); }
+    "<"  { return symbol(sym.MENOR, yytext()); }
+    ">=" { return symbol(sym.MAYOR_IGUAL, yytext()); }
+    "<=" { return symbol(sym.MENOR_IGUAL, yytext()); }
 
-    "&&" { return symbol(sym.AND); }
-    "||" { return symbol(sym.OR); }
-    "!"  { return symbol(sym.NOT); }
+    "&&" { return symbol(sym.AND, yytext()); }
+    "||" { return symbol(sym.OR, yytext()); }
+    "!"  { return symbol(sym.NOT, yytext()); }
 
     "+" { return symbol(sym.SUMA); }
     "-" { return symbol(sym.RESTA); }
     "*" { return symbol(sym.MULTIPLICACION); }
     "/" { return symbol(sym.DIVISION); }
-    "(" { return symbol(sym.PARENTESIS_ABIERTO); }
-    ")" { return symbol(sym.PARENTESIS_CERRADO); }
+    "(" { return symbol(sym.PARENTESIS_ABIERTO, yytext()); }
+    ")" { return symbol(sym.PARENTESIS_CERRADO, yytext()); }
 
-    "=" { return symbol(sym.IGUAL); }
+    "=" { return symbol(sym.IGUAL, yytext()); }
     "," { return symbol(sym.COMA); }
     "|" { return symbol(sym.PIPE); }
 
@@ -164,9 +164,9 @@ ID = _?{Letter}({Letter}|_|{WholeNumber})*
         return symbol(sym.HEXADECIMAL, this.string.toString().trim());
     }
 
-    {WholeNumber}   { return symbol(sym.NUMERO_ENTERO); }
-    {DecimalNumber} { return symbol(sym.NUMERO_DECIMAL); }
-    {ID}            { return symbol(sym.ID); }
+    {WholeNumber}   { return symbol(sym.NUMERO_ENTERO, yytext()); }
+    {DecimalNumber} { return symbol(sym.NUMERO_DECIMAL, yytext()); }
+    {ID}            { return symbol(sym.ID, yytext()); }
 }
 
 // Comment state
@@ -189,7 +189,7 @@ ID = _?{Letter}({Letter}|_|{WholeNumber})*
         return symbol(sym.TEXTO, this.string.toString().trim());
     }
     {InputCharacter}+ { this.string.append(yytext()); }
-    {LineTerminator} { this.string.append(yytext()); }
+    {LineTerminator} { this.string.append("\n"); }
 }
 
 // Hexadecimal state
