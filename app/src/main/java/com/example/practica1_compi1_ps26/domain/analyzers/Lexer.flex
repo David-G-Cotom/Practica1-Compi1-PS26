@@ -123,7 +123,7 @@ ID = _?{Letter}({Letter}|_|{WholeNumber})*
     ")" { return symbol(sym.PARENTESIS_CERRADO, yytext()); }
 
     "=" { return symbol(sym.IGUAL, yytext()); }
-    "," { return symbol(sym.COMA); }
+    "," { return symbol(sym.COMA, yytext()); }
     "|" { return symbol(sym.PIPE); }
 
     "%DEFAULT" { return symbol(sym.DEFAULT); }
