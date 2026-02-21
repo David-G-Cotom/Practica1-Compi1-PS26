@@ -19,6 +19,9 @@ parser code {:
     private ArrayList<Component> components;
     private ParserUtilities parserUtilities;
     private Interpreter interpreter;
+    private ArrayList<ErrorReport> errors;
+    private ArrayList<OperatorReport> operators;
+    private ArrayList<StructureReport> structures;
 
     // Parser and Lexer Connection
     public parser(Lexer lex) {
@@ -28,6 +31,9 @@ parser code {:
         this.components = new ArrayList<>();
         this.parserUtilities = new ParserUtilities();
         this.interpreter = new Interpreter(this.components);
+        this.errors = new ArrayList<>();
+        this.operators = new ArrayList<>();
+        this.structures = new ArrayList<>();
     }
 
     // Getters
@@ -45,6 +51,18 @@ parser code {:
 
     public Interpreter getInterpreter() {
         return this.interpreter;
+    }
+
+    public ArrayList<ErrorReport> getErrorsReport() {
+        return this.errors;
+    }
+
+    public ArrayList<OperatorReport> getOperatorsReport() {
+        return this.operators;
+    }
+
+    public ArrayList<StructureReport> getStructuresReport() {
+        return this.structures;
     }
 
     // Method to add an component to the list
@@ -300,7 +318,7 @@ tn ::= tn:t operador_md:omd fn:f {:
                 RESULT = t * f;
             } else {
                 if (f == 0) {
-                    // Reportar la Divisioon entre Cero
+                    // Reportar la Division entre Cero
                     RESULT = 0;
                 } else {
                     RESULT = t / f;

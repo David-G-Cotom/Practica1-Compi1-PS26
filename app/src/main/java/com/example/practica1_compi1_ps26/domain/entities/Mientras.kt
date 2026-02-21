@@ -10,7 +10,7 @@ class Mientras(
     figureName: FigureType = FigureType.ROMBO,
     font: FontType = FontType.TIMES_NEW_ROMAN,
     fontSize: Double = 14.0
-): Component(
+) : Component(
     generalId,
     specificId,
     content,
@@ -20,10 +20,6 @@ class Mientras(
     font,
     fontSize
 ) {
-
-    override fun returnFinalValue(): String {
-        return "Mientras"
-    }
 
     override fun setDefaultValues() {
         this.textColor = "fff"

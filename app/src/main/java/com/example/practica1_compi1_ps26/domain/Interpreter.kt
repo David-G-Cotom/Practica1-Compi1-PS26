@@ -19,7 +19,6 @@ class Interpreter(var components: ArrayList<Component>) {
         }
     }
 
-    // ------------------------- Configurations for SI -------------------------
     fun setColorTexto(index: Int, color: String, code: CodeType) {
         var newColor: String = color
         if (color.contains(",")) {
@@ -74,16 +73,22 @@ class Interpreter(var components: ArrayList<Component>) {
         val colorRGBArray = colorRGB.split(",")
 
         var red = colorRGBArray[0].toInt()
-        if (red > 255) { red = 255
-        } else if (red < 0) { red = 0
+        if (red > 255) {
+            red = 255
+        } else if (red < 0) {
+            red = 0
         }
         var green = colorRGBArray[1].toInt()
-        if (green > 255) { green = 255
-        } else if (green < 0) { green = 0
+        if (green > 255) {
+            green = 255
+        } else if (green < 0) {
+            green = 0
         }
         var blue = colorRGBArray[2].toInt()
-        if (blue > 255) { blue = 255
-        } else if (blue < 0) { blue = 0
+        if (blue > 255) {
+            blue = 255
+        } else if (blue < 0) {
+            blue = 0
         }
 
         val redHex = Integer.toHexString(red)

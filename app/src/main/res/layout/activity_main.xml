@@ -7,13 +7,80 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btnExecute"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_margin="4dp"
+        android:text="Ejecutar"
+        app:layout_constraintBottom_toTopOf="@+id/btnStructuresReport"
+        app:layout_constraintEnd_toStartOf="@id/btnOperatorsReport"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnOperatorsReport"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="Reporte Operadores"
+        app:layout_constraintBottom_toTopOf="@+id/btnErrorReport"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnExecute"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnStructuresReport"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="Reporte Estructuras"
+        app:layout_constraintEnd_toStartOf="@id/btnErrorReport"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnExecute" />
+
+    <Button
+        android:id="@+id/btnErrorReport"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="Reporte Errores"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnStructuresReport"
+        app:layout_constraintTop_toBottomOf="@+id/btnOperatorsReport" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/btnStructuresReport">
+
+        <LinearLayout
+            android:id="@+id/note_book_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etInputCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:backgroundTint="@color/black"
+                android:hint="Ingresa Pseudocodigo" />
+
+            <ImageView
+                android:id="@+id/ivDiagram"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="Diagrama de Flujo del Pseudocodigo"
+                android:scaleType="centerCrop" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

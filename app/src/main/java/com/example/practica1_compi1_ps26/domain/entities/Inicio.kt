@@ -9,7 +9,7 @@ class Inicio(
     figureName: FigureType = FigureType.ELIPSE,
     font: FontType = FontType.TIMES_NEW_ROMAN,
     fontSize: Double = 18.0
-): Component(
+) : Component(
     generalId,
     specificId,
     content,
@@ -19,10 +19,6 @@ class Inicio(
     font,
     fontSize
 ) {
-
-    override fun returnFinalValue(): String {
-        return "Inicio"
-    }
 
     override fun setDefaultValues() {
         this.textColor = "fff"

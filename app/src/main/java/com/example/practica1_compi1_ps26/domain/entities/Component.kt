@@ -11,8 +11,6 @@ abstract class Component(
     var fontSize: Double
 ) {
 
-    abstract fun returnFinalValue(): String
-
     abstract fun setDefaultValues()
 
     override fun toString(): String {

@@ -9,7 +9,7 @@ class Bloque(
     figureName: FigureType = FigureType.PARALELOGRAMO,
     font: FontType = FontType.TIMES_NEW_ROMAN,
     fontSize: Double = 14.0
-): Component(
+) : Component(
     generalId,
     specificId,
     content,
@@ -19,10 +19,6 @@ class Bloque(
     font,
     fontSize
 ) {
-
-    override fun returnFinalValue(): String {
-        return "Bloque"
-    }
 
     override fun setDefaultValues() {
         this.textColor = "000"
