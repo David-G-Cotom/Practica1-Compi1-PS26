@@ -161,4 +161,78 @@ class Interpreter(var components: ArrayList<Component>) {
         }
     }
 
+    fun generateDOT(): String {
+        var dot = "digraph G {\nnode [style=filled]\n"
+        var previus2ID = ""
+        var previousID = ""
+        var currentID: String
+        var withinSiFlag = false
+        var assembleSiFlag = false
+        var withinMientrasFlag = false
+        var assembleMientrasFlag = false
+        for (component in this.components) {
+            val id: String = component::class.simpleName + component.generalId.toString()
+            dot += id + " " +
+                    "[shape=" + component.figureName.value + ", " +
+                    "label=\"" + component.content + "\", color=\"#" + component.figureColor + "\", " +
+                    "fontcolor=\"#" + component.textColor + "\", fontname=\"" + component.font.value + "\", " +
+                    "fontsize=" + component.fontSize.toString() + "];\n"
+            if (previousID == "") {
+                previousID = id
+                continue
+            }
+
+            currentID = id
+
+            if (withinSiFlag) {
+                dot += previousID + " -> " + currentID + " [label=\"Si\"];\n"
+                previousID = currentID
+                withinSiFlag = false
+                assembleSiFlag = true
+                continue
+            }
+            if (withinMientrasFlag) {
+                dot += previousID + " -> " + currentID + " [label=\"Mientras Si\"];\n"
+                previousID = currentID
+                withinMientrasFlag = false
+                assembleMientrasFlag = true
+                continue
+            }
+            if (assembleMientrasFlag) {
+                dot += previus2ID + " -> " + currentID + " [label=\"No\"];\n"
+                dot += previousID + " -> " + previus2ID + ";\n"
+                assembleMientrasFlag = false
+                previousID = currentID
+                if (component is Si) {
+                    withinSiFlag = true
+                    previus2ID = currentID
+                    continue
+                }
+                continue
+            }
+
+            dot += previousID + " -> " + currentID + ";\n"
+
+            if (assembleSiFlag) {
+                dot += previus2ID + " -> " + currentID + " [label=\"No\"];\n"
+                assembleSiFlag = false
+            }
+
+            previousID = currentID
+
+            if (component is Si) {
+                withinSiFlag = true
+                previus2ID = currentID
+                continue
+            }
+            if (component is Mientras) {
+                withinMientrasFlag = true
+                previus2ID = currentID
+                continue
+            }
+        }
+        dot += "}"
+        return dot
+    }
+
 }

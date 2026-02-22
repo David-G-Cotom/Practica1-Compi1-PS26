@@ -154,7 +154,7 @@ class TableActivity : AppCompatActivity() {
         val colType = row.findViewById<TextView>(R.id.colType)
         val colDescription = row.findViewById<TextView>(R.id.colDescription)
 
-        colLexeme.text = "Lexema"
+        colLexeme.text = "Lexema/Token"
         colLexeme.setTypeface(null, Typeface.BOLD)
         colLine.text = "Linea"
         colLine.setTypeface(null, Typeface.BOLD)

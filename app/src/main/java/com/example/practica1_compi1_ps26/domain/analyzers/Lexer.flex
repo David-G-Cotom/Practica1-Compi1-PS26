@@ -5,6 +5,8 @@ import java_cup.runtime.*;
 
 import java.util.ArrayList;
 
+import com.example.practica1_compi1_ps26.domain.entities.ErrorReport;
+
 %% // ---------------------------------------- SECTION SEPARATOR ----------------------------------------
 
 // USER CODE
@@ -13,17 +15,15 @@ import java.util.ArrayList;
     private StringBuilder string;
 
     // Error Handling
-    private ArrayList<String> errorList;
     private ArrayList<String> symbols;
+    private ArrayList<ErrorReport> lexicalErrors;
 
-    private void error(String message) {
-        String errorMessage = "Error en la linea " + yyline + ", columna " + yycolumn + ": " + message;
-        this.errorList.add(errorMessage);
-        System.out.println(errorMessage);
+    private void error(String token) {
+        this.lexicalErrors.add(new ErrorReport(token, yyline, yycolumn, "Lexico", "Cadena no existente en el lenguaje"));
     }
 
-    public ArrayList<String> getErrorList(){
-        return this.errorList;
+    public ArrayList<ErrorReport> getLexicalErrors(){
+        return this.lexicalErrors;
     }
 
     public ArrayList<String> getSymbols(){
@@ -52,8 +52,8 @@ import java.util.ArrayList;
 %cup
 %init{
     this.string = new StringBuilder();
-    this.errorList = new ArrayList<>();
     this.symbols = new ArrayList<>();
+    this.lexicalErrors = new ArrayList<>();
     yyline = 1;
     yycolumn = 1;
 %init}
@@ -210,5 +210,5 @@ ID = _?{Letter}({Letter}|_|{WholeNumber})*
 {WhiteSpace} | {LineTerminator} { /* Ignore */ }
 
 /* Error handling */
-. { error("Símbolo inválido <" + yytext() + ">"); }
+. { error(yytext()); }
 <<EOF>> { return symbol(sym.EOF); }

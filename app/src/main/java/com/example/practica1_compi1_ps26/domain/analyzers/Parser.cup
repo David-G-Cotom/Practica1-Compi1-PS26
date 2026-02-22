@@ -15,11 +15,10 @@ class Parser;
 parser code {:
     // Utils
     Lexer lex;
-    private ArrayList<String> syntaxErrors;
     private ArrayList<Component> components;
     private ParserUtilities parserUtilities;
     private Interpreter interpreter;
-    private ArrayList<ErrorReport> errors;
+    private ArrayList<ErrorReport> syntaxErrors;
     private ArrayList<OperatorReport> operators;
     private ArrayList<StructureReport> structures;
 
@@ -31,7 +30,6 @@ parser code {:
         this.components = new ArrayList<>();
         this.parserUtilities = new ParserUtilities();
         this.interpreter = new Interpreter(this.components);
-        this.errors = new ArrayList<>();
         this.operators = new ArrayList<>();
         this.structures = new ArrayList<>();
     }
@@ -41,7 +39,7 @@ parser code {:
         return this.lex;
     }
 
-    public ArrayList<String> getSyntaxErrors() {
+    public ArrayList<ErrorReport> getSyntaxErrors() {
         return this.syntaxErrors;
     }
 
@@ -72,61 +70,54 @@ parser code {:
 
     // Overwrite error methods
     public void syntax_error(Symbol cur_token) {
-        StringBuilder mssBuilder = new StringBuilder("Símbolo: ");
-        mssBuilder.append(symbl_name_from_id(cur_token.sym));
-
+        String symbol = symbl_name_from_id(cur_token.sym);
+        String lexeme = "";
         if (cur_token.value != null) {
-            mssBuilder.append(", lexema <");
-            mssBuilder.append(cur_token.value.toString());
-            mssBuilder.append(">");
+            lexeme = cur_token.value.toString();
         }
-        mssBuilder.append(", línea: ");
-        mssBuilder.append(cur_token.left);
-        mssBuilder.append(", columna: ");
-        mssBuilder.append(cur_token.right);
+        Integer line = cur_token.left;
+        Integer column = cur_token.right;
+        StringBuilder description = new StringBuilder();
 
         if (expected_token_ids().isEmpty()) {
-            mssBuilder.append(" -- No se esperaba ningún símbolo");
+            description.append("No se esperaba ningun simbolo");
         } else {
-            mssBuilder.append(" -- Se esperaba [");
+            description.append("Se esperaba [");
             for (Integer expected_token_id : expected_token_ids()) {
                 if (!symbl_name_from_id(expected_token_id).equals("error")) {
-                    mssBuilder.append(symbl_name_from_id(expected_token_id));
-                    mssBuilder.append(" ");
+                    description.append(symbl_name_from_id(expected_token_id));
+                    description.append(" ");
                 }
             }
-            mssBuilder.append("]");
+            description.append("]");
         }
-        this.syntaxErrors.add(mssBuilder.toString());
+
+        this.syntaxErrors.add(new ErrorReport(lexeme + "/" + symbol, line, column, "Sintactico", description.toString()));
     }
 
     public void report_error(String message, Object info) {
         try {
             Symbol cur_token = (Symbol) info;
-            StringBuilder mssBuilder = new StringBuilder("Símbolo: ");
-            mssBuilder.append(symbl_name_from_id(cur_token.sym));
-            mssBuilder.append(", línea: ");
-            mssBuilder.append(cur_token.left);
-            mssBuilder.append(", columna: ");
-            mssBuilder.append(cur_token.right);
+            String symbol = symbl_name_from_id(cur_token.sym);
+            Integer line = cur_token.left;
+            Integer column = cur_token.right;
+            String lexeme = "";
             if (cur_token != null) {
-                mssBuilder.append(", Lexema: ");
-                mssBuilder.append(cur_token.value);
+                lexeme = cur_token.value.toString();
             }
-
+            String description = "";
             if (message != null) {
-                mssBuilder.append(", Info: ");
-                mssBuilder.append(message);
+                description = message;
             }
 
-            this.syntaxErrors.add(mssBuilder.toString());
+            this.syntaxErrors.add(new ErrorReport(lexeme + "/" + symbol, line, column, "Sintactico", description));
         } catch (Exception e) {
-            this.syntaxErrors.add(message);
+            this.syntaxErrors.add(new ErrorReport(lexeme + "/" + symbol, line, column, "Sintactico", message));
         }
     }
 
     public void unrecovered_syntax_error(Symbol cur_token) {
-        this.syntaxErrors.add("Errores de sintaxis severos detectados, revisa minuciosamente el código.");
+        this.syntaxErrors.add(new ErrorReport("", cur_token.left, cur_token.right, "Sintactico", "Error de sintaxis severo detectado, revise bien el codigo."));
     }
 :}
 
@@ -247,7 +238,8 @@ contenido_bloque ::= contenido_bloque:cb bloque:b {:
 
 bloque ::= variable:v {: RESULT = v; :} |
            mostrar:m {: RESULT = m; :} |
-           leer:l {: RESULT = l; :};
+           leer:l {: RESULT = l; :} |
+           /* empty */ {: RESULT = ""; :};
 
 variable ::= VAR:var ID:id asignacion:a {: RESULT = var + " " + id + " " + a; :} |
              ID:id IGUAL:i operacion_matematica_literal:o {: RESULT = id + " " + i + " " + o; :};
@@ -255,7 +247,8 @@ variable ::= VAR:var ID:id asignacion:a {: RESULT = var + " " + id + " " + a; :}
 asignacion ::= IGUAL:i operacion_matematica_literal:o {: RESULT = i + " " + o; :} |
                /* empty */ {: RESULT = ""; :};
 
-si ::= SI PARENTESIS_ABIERTO operacion_lra:o PARENTESIS_CERRADO ENTONCES contenido_bloque:cb FINSI {:
+si ::= SI:s PARENTESIS_ABIERTO operacion_lra:o PARENTESIS_CERRADO ENTONCES contenido_bloque:cb FINSI {:
+            parser.structures.add(new StructureReport("SI", sleft, o));
             RESULT = new Si(parser.parserUtilities.updateGeneralId(), parser.parserUtilities.updateIdSi(), o, parser.parserUtilities.generateBloque(cb));
         :};
 
@@ -275,22 +268,30 @@ operacion_relacional ::= operacion_matematica_literal:om1 operador_relacional:or
 
 operacion_matematica_literal ::= operacion_matematica_literal:om operador_sr:osr tl:t {:
                                     String operador;
+                                    String tipoOperador;
                                     if (osr.equals(sym.SUMA)) {
                                         operador = "+";
+                                        tipoOperador = "SUMA";
                                     } else {
                                         operador = "-";
+                                        tipoOperador = "RESTA";
                                     }
+                                    parser.operators.add(new OperatorReport(tipoOperador, osrleft, osrright, om + operador + t));
                                     RESULT = om + " " + operador + " " + t;
                                 :} |
                                 tl:t {: RESULT = t; :};
 
 tl ::= tl:t operador_md:omd fl:f {:
             String operador;
+            String tipoOperador;
             if (omd.equals(sym.MULTIPLICACION)) {
                 operador = "*";
+                tipoOperador = "MULTIPLICACION";
             } else {
                 operador = "/";
+                tipoOperador = "DIVISION";
             }
+            parser.operators.add(new OperatorReport(tipoOperador, omdleft, omdright, t + operador + f));
             RESULT = t + " " + operador + " " + f;
         :} |
         fl:f {: RESULT = f; :};
@@ -306,8 +307,10 @@ gl ::= operacion_matematica_literal:oml PARENTESIS_CERRADO:pc {: RESULT = oml + 
 
 operacion_matematica_numerica ::= operacion_matematica_numerica:om operador_sr:osr tn:t {:
                                         if (osr.equals(sym.SUMA)) {
+                                            parser.operators.add(new OperatorReport("SUMA", osrleft, osrright, om + " + " + t));
                                             RESULT = om + t;
                                         } else {
+                                        parser.operators.add(new OperatorReport("RESTA", osrleft, osrright, om + " - " + t));
                                             RESULT = om - t;
                                         }
                                     :} |
@@ -315,8 +318,10 @@ operacion_matematica_numerica ::= operacion_matematica_numerica:om operador_sr:o
 
 tn ::= tn:t operador_md:omd fn:f {:
             if (omd.equals(sym.MULTIPLICACION)) {
+                parser.operators.add(new OperatorReport("MULTIPLICACION", omdleft, omdright, t + " * " + f));
                 RESULT = t * f;
             } else {
+                parser.operators.add(new OperatorReport("DIVISION", omdleft, omdright, t + " / " + f));
                 if (f == 0) {
                     // Reportar la Division entre Cero
                     RESULT = 0;
@@ -331,7 +336,8 @@ fn ::= PARENTESIS_ABIERTO operacion_matematica_numerica:om PARENTESIS_CERRADO {:
         NUMERO_DECIMAL:n {: RESULT = n; :} |
         NUMERO_ENTERO:n {: RESULT = n; :};
 
-mientras ::= MIENTRAS PARENTESIS_ABIERTO operacion_lra:o PARENTESIS_CERRADO HACER contenido_bloque:cb FINMIENTRAS {:
+mientras ::= MIENTRAS:m PARENTESIS_ABIERTO operacion_lra:o PARENTESIS_CERRADO HACER contenido_bloque:cb FINMIENTRAS {:
+                parser.structures.add(new StructureReport("MIENTRAS", mleft, o));
                 RESULT = new Mientras(parser.parserUtilities.updateGeneralId(), parser.parserUtilities.updateIdMientras(), o, parser.parserUtilities.generateBloque(cb));
             :};
 

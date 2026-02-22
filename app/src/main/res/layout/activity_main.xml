@@ -60,7 +60,7 @@
         <LinearLayout
             android:id="@+id/note_book_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -71,13 +71,11 @@
                 android:backgroundTint="@color/black"
                 android:hint="Ingresa Pseudocodigo" />
 
-            <ImageView
-                android:id="@+id/ivDiagram"
+            <WebView
+                android:id="@+id/webViewGraph"
+                android:layout_margin="8dp"
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:adjustViewBounds="true"
-                android:contentDescription="Diagrama de Flujo del Pseudocodigo"
-                android:scaleType="centerCrop" />
+                android:layout_height="500dp"/>
 
         </LinearLayout>
 
