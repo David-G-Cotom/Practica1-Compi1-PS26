@@ -1,7 +1,8 @@
 // IMPORTS
-package com.example.practica1_compi1_ps26.data.analyzers;
+package com.example.practica1_compi1_ps26.domain.analyzers;
 
 import java_cup.runtime.*;
+import com.example.practica1_compi1_ps26.domain.analyzers.sym;
 
 import java.util.ArrayList;
 
@@ -60,8 +61,8 @@ import com.example.practica1_compi1_ps26.domain.entities.ErrorReport;
 
 // REGULAR EXPRESSIONS
 LineTerminator = \r|\n|\n\r|\r\n
-WhiteSpace = [" "\t\f]
-InputCharacter = [^{LineTerminator}]
+WhiteSpace = [ \t\f]
+InputCharacter = [^\r\n]
 Dot = \.
 WholeNumber = 0|[1-9][0-9]*
 DecimalNumber = {WholeNumber}{Dot}[0-9]+
@@ -69,7 +70,7 @@ Letter = [a-zA-Z]
 ID = _?{Letter}({Letter}|_|{WholeNumber})*
 
 // STATES
-%state TEXT, COMMENT//, HEXADECIMAL
+%state TEXT, COMMENT
 
 %% // ---------------------------------------- SECTION SEPARATOR ----------------------------------------
 
@@ -185,7 +186,7 @@ ID = _?{Letter}({Letter}|_|{WholeNumber})*
 // Text state
 <TEXT> {
     \" {
-        yybeing(YYINITIAL);
+        yybegin(YYINITIAL);
         return symbol(sym.TEXTO, this.string.toString().trim());
     }
     {InputCharacter}+ { this.string.append(yytext()); }

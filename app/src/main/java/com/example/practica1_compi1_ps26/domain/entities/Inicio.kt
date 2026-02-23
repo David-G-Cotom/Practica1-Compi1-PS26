@@ -1,6 +1,6 @@
 package com.example.practica1_compi1_ps26.domain.entities
 
-class Inicio(
+class Inicio @JvmOverloads constructor(
     generalId: Int,
     specificId: Int,
     content: String,

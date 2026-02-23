@@ -1,6 +1,6 @@
 package com.example.practica1_compi1_ps26.domain.entities
 
-class Fin(
+class Fin @JvmOverloads constructor(
     generalId: Int,
     specificId: Int,
     content: String,

@@ -1,10 +1,10 @@
 package com.example.practica1_compi1_ps26.domain.entities
 
-class Si(
+class Si @JvmOverloads constructor(
     generalId: Int,
     specificId: Int,
     content: String,
-    blockContent: Bloque,
+    var blockContent: Bloque,
     textColor: String = "fff",
     figureColor: String = "f80",
     figureName: FigureType = FigureType.ROMBO,

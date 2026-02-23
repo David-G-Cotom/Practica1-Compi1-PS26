@@ -1,5 +1,5 @@
 /***************************************** PACKAGES AND IMPORTS *****************************************/
-package com.example.practica1_compi1_ps26.data.analyzers;
+package com.example.practica1_compi1_ps26.domain.analyzers;
 
 import java_cup.runtime.*;
 
@@ -10,7 +10,6 @@ import com.example.practica1_compi1_ps26.domain.ParserUtilities;
 import com.example.practica1_compi1_ps26.domain.Interpreter;
 
 /***************************************** CUP *****************************************/
-class Parser;
 
 parser code {:
     // Utils
@@ -23,7 +22,7 @@ parser code {:
     private ArrayList<StructureReport> structures;
 
     // Parser and Lexer Connection
-    public parser(Lexer lex) {
+    public Parser(Lexer lex) {
         super(lex);
         this.lex = lex;
         this.syntaxErrors = new ArrayList<>();
@@ -49,10 +48,6 @@ parser code {:
 
     public Interpreter getInterpreter() {
         return this.interpreter;
-    }
-
-    public ArrayList<ErrorReport> getErrorsReport() {
-        return this.errors;
     }
 
     public ArrayList<OperatorReport> getOperatorsReport() {
@@ -96,16 +91,19 @@ parser code {:
     }
 
     public void report_error(String message, Object info) {
+        String lexeme = "";
+        String symbol = "";
+        String  description = "";
+        Integer column = -1;
+        Integer line = -1;
         try {
             Symbol cur_token = (Symbol) info;
-            String symbol = symbl_name_from_id(cur_token.sym);
-            Integer line = cur_token.left;
-            Integer column = cur_token.right;
-            String lexeme = "";
+            symbol = symbl_name_from_id(cur_token.sym);
+            line = cur_token.left;
+            column = cur_token.right;
             if (cur_token != null) {
                 lexeme = cur_token.value.toString();
             }
-            String description = "";
             if (message != null) {
                 description = message;
             }
@@ -149,11 +147,11 @@ terminal Double NUMERO_ENTERO, NUMERO_DECIMAL;
 // No Terminales
 non terminal ArrayList<Component> s, fuente_entrada, parte1, contenido_codigo;
 non terminal Component instruccion_codigo, si, mientras;
-non terminal ArrayList<String> contenido_bloque;
-non terminal String bloque, variable, leer, mostrar, asignacion, mensaje;
+non terminal ArrayList<String> lista_instrucciones, contenido_bloque, contenido_bloque_opt;
+non terminal String instruccion_simple, variable, leer, mostrar, asignacion, mensaje;
 non terminal String operacion_lra, operacion_and, operacion_not, operacion_relacional, operacion_matematica_literal;
 non terminal String operador_relacional;
-non terminal String tl, fl, gl;
+non terminal String tl, fl;
 non terminal String color, rgb;
 non terminal Double operacion_matematica_numerica;
 non terminal Double tn, fn;
@@ -180,22 +178,28 @@ non terminal instruccion_letra_bloque;
 non terminal instruccion_letra_size_bloque;
 
 /***************************************** PRECEDENCES *****************************************/
+precedence left OR;
+precedence left AND;
+precedence right NOT;
+
+precedence left SUMA, RESTA;
+precedence left MULTIPLICACION, DIVISION;
 
 /***************************************** GRAMMAR *****************************************/
-start with fuente_entrada;
+start with s;
 
 s ::= fuente_entrada:f {:
         for (Component component : f) {
             if (component instanceof Si si) {
                 System.out.println(si.toString());
-                System.out.println(si.blockContent.toString());
+                System.out.println(si.getBlockContent().toString());
                 addComponent(si);
-                addComponent(si.blockContent);
+                addComponent(si.getBlockContent());
             } else if (component instanceof Mientras mientras) {
                 System.out.println(mientras.toString());
-                System.out.println(mientras.blockContent.toString());
+                System.out.println(mientras.getBlockContent().toString());
                 addComponent(mientras);
-                addComponent(mientras.blockContent);
+                addComponent(mientras.getBlockContent());
             } else {
                 System.out.println(component.toString());
                 addComponent(component);
@@ -224,22 +228,27 @@ contenido_codigo ::= contenido_codigo:cc instruccion_codigo:ic {:
 
 instruccion_codigo ::= si:s {: RESULT = s; :} |
                        mientras:m {: RESULT = m; :} |
-                       contenido_bloque:cb {: RESULT = parser.parserUtilities.generateBloque(cb); :};
+                       instruccion_simple:cb {:
+                            ArrayList<String> list = new ArrayList<>();
+                            list.add(cb);
+                            RESULT = parser.parserUtilities.generateBloque(list);
+                       :};
 
-contenido_bloque ::= contenido_bloque:cb bloque:b {:
+contenido_bloque ::= lista_instrucciones:li {: RESULT = li; :};
+
+lista_instrucciones ::= lista_instrucciones:cb instruccion_simple:b {:
                         cb.add(b);
                         RESULT = cb;
                     :} |
-                     bloque:b {:
+                     instruccion_simple:b {:
                         ArrayList<String> list = new ArrayList<>();
                         list.add(b);
                         RESULT = list;
                     :};
 
-bloque ::= variable:v {: RESULT = v; :} |
+instruccion_simple ::= variable:v {: RESULT = v; :} |
            mostrar:m {: RESULT = m; :} |
-           leer:l {: RESULT = l; :} |
-           /* empty */ {: RESULT = ""; :};
+           leer:l {: RESULT = l; :};
 
 variable ::= VAR:var ID:id asignacion:a {: RESULT = var + " " + id + " " + a; :} |
              ID:id IGUAL:i operacion_matematica_literal:o {: RESULT = id + " " + i + " " + o; :};
@@ -247,16 +256,23 @@ variable ::= VAR:var ID:id asignacion:a {: RESULT = var + " " + id + " " + a; :}
 asignacion ::= IGUAL:i operacion_matematica_literal:o {: RESULT = i + " " + o; :} |
                /* empty */ {: RESULT = ""; :};
 
-si ::= SI:s PARENTESIS_ABIERTO operacion_lra:o PARENTESIS_CERRADO ENTONCES contenido_bloque:cb FINSI {:
+si ::= SI:s PARENTESIS_ABIERTO operacion_lra:o PARENTESIS_CERRADO ENTONCES contenido_bloque_opt:cb FINSI {:
             parser.structures.add(new StructureReport("SI", sleft, o));
             RESULT = new Si(parser.parserUtilities.updateGeneralId(), parser.parserUtilities.updateIdSi(), o, parser.parserUtilities.generateBloque(cb));
         :};
 
+contenido_bloque_opt ::= contenido_bloque:cb {: RESULT = cb; :} |
+                        /* empty */ {:
+                            ArrayList<String> list = new ArrayList<>();
+                            list.add("");
+                            RESULT = list;
+                        :};
+
 operacion_lra ::= operacion_lra:olra OR:o operacion_and:oand {: RESULT = olra + " " + o + " " + oand; :} |
                   operacion_and:oand {: RESULT = oand; :};
 
-operacion_and ::= operacion_and:oand AND:a operacion_not:onot {: REULT = oand + " " + a + " " + onot; :} |
-                  operacion_not:onot {: RESULT onot; :};
+operacion_and ::= operacion_and:oand AND:a operacion_not:onot {: RESULT = oand + " " + a + " " + onot; :} |
+                  operacion_not:onot {: RESULT = onot; :};
 
 operacion_not ::= NOT:n operacion_lra:olra {: RESULT = n + olra; :} |
                   operacion_relacional:or {: RESULT = or; :} ;
@@ -296,14 +312,10 @@ tl ::= tl:t operador_md:omd fl:f {:
         :} |
         fl:f {: RESULT = f; :};
 
-fl ::= PARENTESIS_ABIERTO:pa gl:g {: RESULT = pa + g; :} |
-      NUMERO_DECIMAL:n {: RESULT = n; :} |
-      NUMERO_ENTERO:n {: RESULT = n; :} |
+fl ::= PARENTESIS_ABIERTO:pa operacion_lra:olra PARENTESIS_CERRADO:pc {: RESULT = pa + olra + pc; :} |
+      NUMERO_DECIMAL:n {: RESULT = n.toString(); :} |
+      NUMERO_ENTERO:n {: RESULT = n.toString(); :} |
       ID:id {: RESULT = id; :};
-
-gl ::= operacion_matematica_literal:oml PARENTESIS_CERRADO:pc {: RESULT = oml + pc; :} |
-      operacion_lra:olra PARENTESIS_CERRADO:pc {: RESULT = olra + pc; :} |
-      operacion_relacional:or PARENTESIS_CERRADO:pc {: RESULT = or + pc; :};
 
 operacion_matematica_numerica ::= operacion_matematica_numerica:om operador_sr:osr tn:t {:
                                         if (osr.equals(sym.SUMA)) {
@@ -324,7 +336,7 @@ tn ::= tn:t operador_md:omd fn:f {:
                 parser.operators.add(new OperatorReport("DIVISION", omdleft, omdright, t + " / " + f));
                 if (f == 0) {
                     // Reportar la Division entre Cero
-                    RESULT = 0;
+                    RESULT = 0.0;
                 } else {
                     RESULT = t / f;
                 }
@@ -336,7 +348,7 @@ fn ::= PARENTESIS_ABIERTO operacion_matematica_numerica:om PARENTESIS_CERRADO {:
         NUMERO_DECIMAL:n {: RESULT = n; :} |
         NUMERO_ENTERO:n {: RESULT = n; :};
 
-mientras ::= MIENTRAS:m PARENTESIS_ABIERTO operacion_lra:o PARENTESIS_CERRADO HACER contenido_bloque:cb FINMIENTRAS {:
+mientras ::= MIENTRAS:m PARENTESIS_ABIERTO operacion_lra:o PARENTESIS_CERRADO HACER contenido_bloque_opt:cb FINMIENTRAS {:
                 parser.structures.add(new StructureReport("MIENTRAS", mleft, o));
                 RESULT = new Mientras(parser.parserUtilities.updateGeneralId(), parser.parserUtilities.updateIdMientras(), o, parser.parserUtilities.generateBloque(cb));
             :};
@@ -368,54 +380,54 @@ instruccion_configuracion ::= instruccion_default |
                               instruccion_letra_bloque |
                               instruccion_letra_size_bloque;
 
-instruccion_default ::= DEFAULT IGUAL NUMERO_ENTERO:n {: parser.interpreter.setDefault(n.toInt()); :};
+instruccion_default ::= DEFAULT IGUAL NUMERO_ENTERO:n {: parser.interpreter.setDefault(Integer.parseInt(n.toString())); :};
 
 instruccion_color_texto_si ::= COLOR_TEXTO_SI IGUAL color:c PIPE NUMERO_ENTERO:n {:
-                                parser.interpreter.setColorTexto(n.toInt(), c, CodeType.SI);
+                                parser.interpreter.setColorTexto(Integer.parseInt(n.toString()), c, CodeType.SI);
                             :};
 instruccion_color_si ::= COLOR_SI IGUAL color:c PIPE NUMERO_ENTERO:n {:
-                            parser.interpreter.setColor(n.toInt(), c, CodeType.SI);
+                            parser.interpreter.setColor(Integer.parseInt(n.toString()), c, CodeType.SI);
                         :};
 instruccion_figura_si ::= FIGURA_SI IGUAL nombre_figura:nf PIPE NUMERO_ENTERO:n {:
-                            parser.interpreter.setFigura(n.toInt(), nf, CodeType.SI);
+                            parser.interpreter.setFigura(Integer.parseInt(n.toString()), nf, CodeType.SI);
                         :};
 instruccion_letra_si ::= LETRA_SI IGUAL nombre_letra:nl PIPE NUMERO_ENTERO:n {:
-                            parser.interpreter.setLetra(n.toInt(), nl, CodeType.SI);
+                            parser.interpreter.setLetra(Integer.parseInt(n.toString()), nl, CodeType.SI);
                         :};
 instruccion_letra_size_si ::= LETRA_SIZE_SI IGUAL operacion_matematica_numerica:r PIPE NUMERO_ENTERO:n {:
-                                parser.interpreter.setLetraSize(n.toInt(), r, CodeType.SI);
+                                parser.interpreter.setLetraSize(Integer.parseInt(n.toString()), r, CodeType.SI);
                             :};
 
 instruccion_color_texto_mientras ::= COLOR_TEXTO_MIENTRAS IGUAL color:c PIPE NUMERO_ENTERO:n {:
-                                         parser.interpreter.setColorTexto(n.toInt(), c, CodeType.MIENTRAS);
+                                         parser.interpreter.setColorTexto(Integer.parseInt(n.toString()), c, CodeType.MIENTRAS);
                                      :};
 instruccion_color_mientras ::= COLOR_MIENTRAS IGUAL color:c PIPE NUMERO_ENTERO:n {:
-                                parser.interpreter.setColor(n.toInt(), c, CodeType.MIENTRAS);
+                                parser.interpreter.setColor(Integer.parseInt(n.toString()), c, CodeType.MIENTRAS);
                             :};
 instruccion_figura_mientras ::= FIGURA_MIENTRAS IGUAL nombre_figura:nf PIPE NUMERO_ENTERO:n {:
-                                    parser.interpreter.setFigura(n.toInt(), nf, CodeType.MIENTRAS);
+                                    parser.interpreter.setFigura(Integer.parseInt(n.toString()), nf, CodeType.MIENTRAS);
                                 :};
 instruccion_letra_mientras ::= LETRA_MIENTRAS IGUAL nombre_letra:nl PIPE NUMERO_ENTERO:n {:
-                                parser.interpreter.setLetra(n.toInt(), nl, CodeType.MIENTRAS);
+                                parser.interpreter.setLetra(Integer.parseInt(n.toString()), nl, CodeType.MIENTRAS);
                             :};
 instruccion_letra_size_mientras ::= LETRA_SIZE_MIENTRAS IGUAL operacion_matematica_numerica:r PIPE NUMERO_ENTERO:n {:
-                                        parser.interpreter.setLetraSize(n.toInt(), r, CodeType.MIENTRAS);
+                                        parser.interpreter.setLetraSize(Integer.parseInt(n.toString()), r, CodeType.MIENTRAS);
                                     :};
 
 instruccion_color_texto_bloque ::= COLOR_TEXTO_BLOQUE IGUAL color:c PIPE NUMERO_ENTERO:n {:
-                                     parser.interpreter.setColorTexto(n.toInt(), c, CodeType.BLOQUE);
+                                     parser.interpreter.setColorTexto(Integer.parseInt(n.toString()), c, CodeType.BLOQUE);
                                  :};
 instruccion_color_bloque ::= COLOR_BLOQUE IGUAL color:c PIPE NUMERO_ENTERO:n {:
-                                parser.interpreter.setColor(n.toInt(), c, CodeType.BLOQUE);
+                                parser.interpreter.setColor(Integer.parseInt(n.toString()), c, CodeType.BLOQUE);
                             :};
 instruccion_figura_bloque ::= FIGURA_BLOQUE IGUAL nombre_figura:nf PIPE NUMERO_ENTERO:n {:
-                                parser.interpreter.setFigura(n.toInt(), nf, CodeType.BLOQUE);
+                                parser.interpreter.setFigura(Integer.parseInt(n.toString()), nf, CodeType.BLOQUE);
                             :};
 instruccion_letra_bloque ::= LETRA_BLOQUE IGUAL nombre_letra:nl PIPE NUMERO_ENTERO:n {:
-                                parser.interpreter.setLetra(n.toInt(), nl, CodeType.BLOQUE);
+                                parser.interpreter.setLetra(Integer.parseInt(n.toString()), nl, CodeType.BLOQUE);
                             :};
 instruccion_letra_size_bloque ::= LETRA_SIZE_BLOQUE IGUAL operacion_matematica_numerica:r PIPE NUMERO_ENTERO:n {:
-                                    parser.interpreter.setLetraSize(n.toInt(), r, CodeType.BLOQUE);
+                                    parser.interpreter.setLetraSize(Integer.parseInt(n.toString()), r, CodeType.BLOQUE);
                                 :};
 
 color ::= rgb:rgb {: RESULT = rgb; :} |
