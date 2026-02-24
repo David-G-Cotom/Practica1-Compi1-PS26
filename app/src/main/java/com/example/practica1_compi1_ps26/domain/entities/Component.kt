@@ -14,13 +14,13 @@ abstract class Component(
     abstract fun setDefaultValues()
 
     override fun toString(): String {
-        return "ID: " + this.generalId +
-                "Figura: " + this.figureName.value +
-                "ID Específico: " + this.specificId +
-                "Color: " + this.figureColor +
-                "Fuente: " + this.font.value +
-                "Color Texto: " + this.textColor +
-                "Tamaño: " + this.fontSize +
+        return "ID: " + this.generalId + " - " +
+                "Figura: " + this.figureName.value + " - " +
+                "ID Específico: " + this.specificId + " - " +
+                "Color: " + this.figureColor + " - " +
+                "Fuente: " + this.font.value + " - " +
+                "Color Texto: " + this.textColor + " - " +
+                "Tamaño: " + this.fontSize + " - " +
                 "Contenido: " + this.content
     }
 

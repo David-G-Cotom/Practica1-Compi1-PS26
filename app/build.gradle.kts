@@ -45,7 +45,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 }
 
-// TASKS TO GENERATE LEXERS AND PARSERS
+// TASKS TO GENERATE LEXER AND PARSER
 tasks.register<JavaExec>("generateLexer") {
 
     group = "code generation"

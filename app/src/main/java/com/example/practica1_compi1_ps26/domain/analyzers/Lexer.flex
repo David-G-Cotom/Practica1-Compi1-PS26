@@ -83,11 +83,9 @@ ID = _?{Letter}({Letter}|_|{WholeNumber})*
 
     "SI"                      { return symbol(sym.SI); }
     "ENTONCES"                { return symbol(sym.ENTONCES); }
-    "FINSI"                   { return symbol(sym.FINSI); }
 
     "MIENTRAS"                { return symbol(sym.MIENTRAS); }
     "HACER"                   { return symbol(sym.HACER); }
-    "FINMIENTRAS"             { return symbol(sym.FINMIENTRAS); }
 
     "VAR"                     { return symbol(sym.VAR, yytext()); }
     "MOSTRAR"                 { return symbol(sym.MOSTRAR, yytext()); }
@@ -149,7 +147,7 @@ ID = _?{Letter}({Letter}|_|{WholeNumber})*
 
     "#" { this.string.setLength(0); yybegin(COMMENT); }
 
-    \" { this.string.setLength(0); yybegin(TEXT); }
+    \" { System.out.println("SE EMPIEZA TEXTO"); this.string.setLength(0); yybegin(TEXT); }
 
     //"H" { this.string.setLength(0); yybegin(HEXADECIMAL); }
     "H"[a-fA-F0-9]{6} {
@@ -165,8 +163,8 @@ ID = _?{Letter}({Letter}|_|{WholeNumber})*
         return symbol(sym.HEXADECIMAL, this.string.toString().trim());
     }
 
-    {WholeNumber}   { return symbol(sym.NUMERO_ENTERO, yytext()); }
-    {DecimalNumber} { return symbol(sym.NUMERO_DECIMAL, yytext()); }
+    {WholeNumber}   { return symbol(sym.NUMERO_ENTERO, Integer.parseInt(yytext())); }
+    {DecimalNumber} { return symbol(sym.NUMERO_DECIMAL, Double.parseDouble(yytext())); }
     {ID}            { return symbol(sym.ID, yytext()); }
 }
 
@@ -186,10 +184,11 @@ ID = _?{Letter}({Letter}|_|{WholeNumber})*
 // Text state
 <TEXT> {
     \" {
+        System.out.println("TEXTO:" + this.string.toString().trim());
         yybegin(YYINITIAL);
         return symbol(sym.TEXTO, this.string.toString().trim());
     }
-    {InputCharacter}+ { this.string.append(yytext()); }
+    {InputCharacter} { this.string.append(yytext()); }
     {LineTerminator} { this.string.append("\n"); }
 }
 

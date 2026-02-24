@@ -21,6 +21,7 @@
             width: 100%;
             height: 100%;
             transform-origin: center center;
+            transition: opacity 0.2s ease;
         }
     </style>
     <title></title>
@@ -43,8 +44,9 @@
 
         Viz.instance().then(viz => {
           const svg = viz.renderSVGElement(dot);
-
-          document.getElementById("container").appendChild(svg);
+          const container = document.getElementById("container");
+          container.innerHTML = "";
+          container.appendChild(svg);
           resetView();
         });
     }

@@ -6,10 +6,13 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.practica1_compi1_ps26.domain.analyzers.Analyzer
 import com.example.practica1_compi1_ps26.domain.entities.ErrorReport
 import com.example.practica1_compi1_ps26.domain.entities.OperatorReport
 import com.example.practica1_compi1_ps26.domain.entities.StructureReport
@@ -29,10 +32,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnStructuresReport: Button
     private lateinit var btnErrorReport: Button
 
-    private lateinit var webView: WebView
+    private lateinit var etInputCode: AppCompatEditText
 
+    private lateinit var webView: WebView
     private var isPageLoaded = false
     private var pendingDot: String? = null
+
+    var analyzer: Analyzer = Analyzer()
+    var operatorReport: ArrayList<OperatorReport> = ArrayList()
+    var structureReport: ArrayList<StructureReport> = ArrayList()
+    var errorReport: ArrayList<ErrorReport> = ArrayList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,14 +56,18 @@ class MainActivity : AppCompatActivity() {
 
         this.initComponents()
         this.setListeners()
-        this.setDOT()
     }
 
     fun initComponents() {
         this.btnExecute = findViewById(R.id.btnExecute)
         this.btnOperatorsReport = findViewById(R.id.btnOperatorsReport)
+        this.btnOperatorsReport.isEnabled = false
         this.btnStructuresReport = findViewById(R.id.btnStructuresReport)
+        this.btnStructuresReport.isEnabled = false
         this.btnErrorReport = findViewById(R.id.btnErrorReport)
+        this.btnErrorReport.isEnabled = false
+
+        this.etInputCode = findViewById(R.id.etInputCode)
 
         this.webView = findViewById(R.id.webViewGraph)
 
@@ -72,7 +85,30 @@ class MainActivity : AppCompatActivity() {
 
     fun setListeners() {
         this.btnExecute.setOnClickListener {
-            // Implementacion con JFlex y CUP
+            this.analyzer = Analyzer()
+            val result: String = this.analyzer.analyze(this.etInputCode.text.toString())
+            if (this.analyzer.errors.isEmpty()) {
+                this.setDOT(this.analyzer.interpreter.generateDOT())
+                this.operatorReport = this.analyzer.operators
+                this.structureReport = this.analyzer.structures
+                this.btnOperatorsReport.isEnabled = true
+                this.btnStructuresReport.isEnabled = true
+                this.btnErrorReport.isEnabled = false
+            } else {
+                Toast.makeText(
+                    this,
+                    "Se encontraron errores en el codigo. Revise el Reporte de Errores",
+                    Toast.LENGTH_SHORT)
+                    .show()
+                this.setDOT("digraph Error {\n" +
+                        "  error\n" +
+                        "}")
+                this.errorReport = this.analyzer.errors
+                this.btnOperatorsReport.isEnabled = false
+                this.btnStructuresReport.isEnabled = false
+                this.btnErrorReport.isEnabled = true
+            }
+            Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
         }
         this.btnOperatorsReport.setOnClickListener {
             this.navigateToOperatorsReport()
@@ -88,33 +124,21 @@ class MainActivity : AppCompatActivity() {
     fun navigateToOperatorsReport() {
         val intent = Intent(this, TableActivity::class.java)
         intent.putExtra(REPORT_TYPE, 1)
-        val operatorReport = arrayListOf(
-            OperatorReport("Suma", 1, 15, "12 + 2"),
-            OperatorReport("Resta", 1, 28, ") - 25")
-        )
-        intent.putExtra(OPERATOR_REPORT, operatorReport)
+        intent.putExtra(OPERATOR_REPORT, this.operatorReport)
         startActivity(intent)
     }
 
     fun navigateToStructuresReport() {
         val intent = Intent(this, TableActivity::class.java)
         intent.putExtra(REPORT_TYPE, 2)
-        val structureReport = arrayListOf(
-            StructureReport("Si", 5, "a > b"),
-            StructureReport("Mientras", 24, "b != 5")
-        )
-        intent.putExtra(STRUCTURE_REPORT, structureReport)
+        intent.putExtra(STRUCTURE_REPORT, this.structureReport)
         startActivity(intent)
     }
 
     fun navigateToErrorsReport() {
         val intent = Intent(this, TableActivity::class.java)
         intent.putExtra(REPORT_TYPE, 3)
-        val errorReport = arrayListOf(
-            ErrorReport("$", 2, 13, "Lexico", "Simbolo no existente en el lenguaje"),
-            ErrorReport("*", 3, 1, "Sintactico", "Se esperaba 'numero'")
-        )
-        intent.putExtra(ERROR_REPORT, errorReport)
+        intent.putExtra(ERROR_REPORT, this.errorReport)
         startActivity(intent)
     }
 
@@ -135,6 +159,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showGraph(dot: String) {
+        println(dot)
         val safeDot = dot.replace("\n", " ")
             .replace("\"", "\\\"")
             .replace("'", "\\'")
@@ -142,35 +167,7 @@ class MainActivity : AppCompatActivity() {
         this.webView.evaluateJavascript(js, null)
     }
 
-    fun setDOT() {
-        val dot = "digraph DiagramaFlujoPseudocodigo1 {\n" +
-                "    node [style=filled]\n" +
-                "\n" +
-                "    Inicio0 [shape=ellipse, label=\"Inicio0\", color=\"#4caf50\", fontcolor=\"#fff\", fontname=\"Times-New-Roman\", fontsize=18.0];\n" +
-                "    \n" +
-                "    Bloque1 [shape=parallelogram, label=\"Bloque1\", color=\"#ffc107\", fontcolor=\"#000\", fontname=\"Times-New-Roman\", fontsize=14.0];\n" +
-                "    Inicio0 -> Bloque1;\n" +
-                "    \n" +
-                "    Si2 [shape=diamond, label=\"Si2\", color=\"#f80\", fontcolor=\"#fff\", fontname=\"Times-New-Roman\", fontsize=14.0];\n" +
-                "    Bloque1 -> Si2;\n" +
-                "    \n" +
-                "    Bloque3 [shape=parallelogram, label=\"Bloque3\", color=\"#ffc107\", fontcolor=\"#000\", fontname=\"Times-New-Roman\", fontsize=14.0];\n" +
-                "    Si2 -> Bloque3 [label=\"Si\"];\n" +
-                "    \n" +
-                "    Mientras4 [shape=diamond, label=\"Mientras4\", color=\"#f80\", fontcolor=\"#fff\", fontname=\"Times-New-Roman\", fontsize=14.0];\n" +
-                "    Bloque3 -> Mientras4;\n" +
-                "    Si2 -> Mientras4 [label=\"No\"];\n" +
-                "    \n" +
-                "    Bloque5 [shape=parallelogram, label=\"Bloque5\", color=\"#ffc107\", fontcolor=\"#000\", fontname=\"Times-New-Roman\", fontsize=14.0];\n" +
-                "    Mientras4 -> Bloque5 [label=\"Mientras Si\"];\n" +
-                "    \n" +
-                "    Bloque6 [shape=parallelogram, label=\"Bloque6\", color=\"#ffc107\", fontcolor=\"#000\", fontname=\"Times-New-Roman\", fontsize=14.0];\n" +
-                "    Mientras4 -> Bloque6 [label=\"No\"]\n" +
-                "    Bloque5 -> Mientras4;\n" +
-                "    \n" +
-                "    Fin7 [shape=ellipse, label=\"Fin7\", color=\"#4caf50\", fontcolor=\"#fff\", fontname=\"Times-New-Roman\", fontsize=18.0];\n" +
-                "    Bloque6 -> Fin7\n" +
-                "}"
+    fun setDOT(dot: String) {
         if (this.isPageLoaded) {
             this.showGraph(dot)
         } else {

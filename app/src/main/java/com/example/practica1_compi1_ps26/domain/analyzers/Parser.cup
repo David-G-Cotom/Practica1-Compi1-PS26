@@ -122,8 +122,8 @@ parser code {:
 /***************************************** DECLARATIONS *****************************************/
 // Tokens - Terminales
 terminal SEPARADOR;
-terminal SI, ENTONCES, FINSI;
-terminal MIENTRAS, HACER, FINMIENTRAS;
+terminal SI, ENTONCES;
+terminal MIENTRAS, HACER;
 terminal ELIPSE, CIRCULO, PARALELOGRAMO, RECTANGULO, ROMBO, RECTANGULO_REDONDEADO;
 terminal ARIAL, TIMES_NEW_ROMAN, COMIC_SANS, VERDANA;
 terminal SUMA, RESTA, MULTIPLICACION, DIVISION;
@@ -142,10 +142,11 @@ terminal String IGUAL, COMA;
 terminal String ID;
 terminal String HEXADECIMAL;
 terminal String TEXTO;
-terminal Double NUMERO_ENTERO, NUMERO_DECIMAL;
+terminal Double NUMERO_DECIMAL;
+terminal Integer NUMERO_ENTERO;
 
 // No Terminales
-non terminal ArrayList<Component> s, fuente_entrada, parte1, contenido_codigo;
+non terminal ArrayList<Component> contenido_codigo;
 non terminal Component instruccion_codigo, si, mientras;
 non terminal ArrayList<String> lista_instrucciones, contenido_bloque, contenido_bloque_opt;
 non terminal String instruccion_simple, variable, leer, mostrar, asignacion, mensaje;
@@ -158,6 +159,7 @@ non terminal Double tn, fn;
 non terminal FigureType nombre_figura;
 non terminal FontType nombre_letra;
 
+non terminal fuente_entrada, parte1;
 non terminal operador_sr, operador_md;
 non terminal contenido_configuracion, instruccion_configuracion;
 non terminal instruccion_default;
@@ -186,34 +188,29 @@ precedence left SUMA, RESTA;
 precedence left MULTIPLICACION, DIVISION;
 
 /***************************************** GRAMMAR *****************************************/
-start with s;
+start with fuente_entrada;
 
-s ::= fuente_entrada:f {:
-        for (Component component : f) {
-            if (component instanceof Si si) {
-                System.out.println(si.toString());
-                System.out.println(si.getBlockContent().toString());
-                addComponent(si);
-                addComponent(si.getBlockContent());
-            } else if (component instanceof Mientras mientras) {
-                System.out.println(mientras.toString());
-                System.out.println(mientras.getBlockContent().toString());
-                addComponent(mientras);
-                addComponent(mientras.getBlockContent());
-            } else {
-                System.out.println(component.toString());
-                addComponent(component);
-            }
-        }
-        RESULT = f;
-    :};
-
-fuente_entrada ::= parte1:p1 SEPARADOR contenido_configuracion {: RESULT = p1; :};
+fuente_entrada ::= parte1 SEPARADOR contenido_configuracion;
 
 parte1 ::= INICIO:i contenido_codigo:cc FIN:f {:
             cc.add(0, new Inicio(0, 0, i));
             cc.add(new Fin(parser.parserUtilities.updateGeneralId(), 0, f));
-            RESULT = cc;
+            for (Component component : cc) {
+                if (component instanceof Si si) {
+                    System.out.println(si.toString());
+                    System.out.println(si.getBlockContent().toString());
+                    addComponent(si);
+                    addComponent(si.getBlockContent());
+                } else if (component instanceof Mientras mientras) {
+                    System.out.println(mientras.toString());
+                    System.out.println(mientras.getBlockContent().toString());
+                    addComponent(mientras);
+                    addComponent(mientras.getBlockContent());
+                } else {
+                    System.out.println(component.toString());
+                    addComponent(component);
+                }
+            }
         :};
 
 contenido_codigo ::= contenido_codigo:cc instruccion_codigo:ic {:
@@ -256,7 +253,7 @@ variable ::= VAR:var ID:id asignacion:a {: RESULT = var + " " + id + " " + a; :}
 asignacion ::= IGUAL:i operacion_matematica_literal:o {: RESULT = i + " " + o; :} |
                /* empty */ {: RESULT = ""; :};
 
-si ::= SI:s PARENTESIS_ABIERTO operacion_lra:o PARENTESIS_CERRADO ENTONCES contenido_bloque_opt:cb FINSI {:
+si ::= SI:s PARENTESIS_ABIERTO operacion_lra:o PARENTESIS_CERRADO ENTONCES contenido_bloque_opt:cb FIN SI {:
             parser.structures.add(new StructureReport("SI", sleft, o));
             RESULT = new Si(parser.parserUtilities.updateGeneralId(), parser.parserUtilities.updateIdSi(), o, parser.parserUtilities.generateBloque(cb));
         :};
@@ -346,16 +343,16 @@ tn ::= tn:t operador_md:omd fn:f {:
 
 fn ::= PARENTESIS_ABIERTO operacion_matematica_numerica:om PARENTESIS_CERRADO {: RESULT = om; :} |
         NUMERO_DECIMAL:n {: RESULT = n; :} |
-        NUMERO_ENTERO:n {: RESULT = n; :};
+        NUMERO_ENTERO:n {: RESULT = Double.parseDouble(n.toString()); :};
 
-mientras ::= MIENTRAS:m PARENTESIS_ABIERTO operacion_lra:o PARENTESIS_CERRADO HACER contenido_bloque_opt:cb FINMIENTRAS {:
+mientras ::= MIENTRAS:m PARENTESIS_ABIERTO operacion_lra:o PARENTESIS_CERRADO HACER contenido_bloque_opt:cb FIN MIENTRAS {:
                 parser.structures.add(new StructureReport("MIENTRAS", mleft, o));
                 RESULT = new Mientras(parser.parserUtilities.updateGeneralId(), parser.parserUtilities.updateIdMientras(), o, parser.parserUtilities.generateBloque(cb));
             :};
 
 mostrar ::= MOSTRAR:mostrar mensaje:mensaje {: RESULT = mostrar + " " + mensaje; :};
 
-mensaje ::= TEXTO:t {: RESULT = "\"" + t + "\""; :} |
+mensaje ::= TEXTO:t {: RESULT = "'" + t + "'"; :} |
             ID:id {: RESULT = id; :};
 
 leer ::= LEER:l ID:id {: RESULT = l + " " + id; :};

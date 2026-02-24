@@ -71,20 +71,22 @@ class Interpreter(var components: ArrayList<Component>) {
 
     fun convertToHexadecimal(colorRGB: String): String {
         val colorRGBArray = colorRGB.split(",")
-
-        var red = colorRGBArray[0].toInt()
+        println(colorRGBArray[0])
+        println(colorRGBArray[1])
+        println(colorRGBArray[2])
+        var red = colorRGBArray[0].toDouble().toInt()
         if (red > 255) {
             red = 255
         } else if (red < 0) {
             red = 0
         }
-        var green = colorRGBArray[1].toInt()
+        var green = colorRGBArray[1].toDouble().toInt()
         if (green > 255) {
             green = 255
         } else if (green < 0) {
             green = 0
         }
-        var blue = colorRGBArray[2].toInt()
+        var blue = colorRGBArray[2].toDouble().toInt()
         if (blue > 255) {
             blue = 255
         } else if (blue < 0) {

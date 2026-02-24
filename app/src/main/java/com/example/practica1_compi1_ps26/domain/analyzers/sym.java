@@ -8,79 +8,75 @@ package com.example.practica1_compi1_ps26.domain.analyzers;
 /** CUP generated class containing symbol constants. */
 public class sym {
   /* terminals */
-  public static final int COLOR_TEXTO_BLOQUE = 35;
-  public static final int LETRA_SIZE_MIENTRAS = 34;
-  public static final int MOSTRAR = 43;
+  public static final int COLOR_TEXTO_BLOQUE = 33;
+  public static final int LETRA_SIZE_MIENTRAS = 32;
+  public static final int MOSTRAR = 41;
   public static final int SI = 3;
-  public static final int FIGURA_BLOQUE = 37;
-  public static final int DIFERENTE = 46;
-  public static final int RESTA = 20;
-  public static final int LETRA_MIENTRAS = 33;
+  public static final int FIGURA_BLOQUE = 35;
+  public static final int DIFERENTE = 44;
+  public static final int RESTA = 18;
+  public static final int LETRA_MIENTRAS = 31;
   public static final int ENTONCES = 4;
-  public static final int RECTANGULO_REDONDEADO = 14;
-  public static final int PARENTESIS_ABIERTO = 54;
+  public static final int RECTANGULO_REDONDEADO = 12;
+  public static final int PARENTESIS_ABIERTO = 52;
   public static final int SEPARADOR = 2;
-  public static final int FIN = 41;
-  public static final int NOT = 53;
-  public static final int AND = 51;
-  public static final int IGUAL = 56;
-  public static final int FINMIENTRAS = 8;
-  public static final int OR = 52;
-  public static final int IGUALDAD = 45;
-  public static final int MIENTRAS = 6;
-  public static final int LETRA_SIZE_BLOQUE = 39;
-  public static final int ARIAL = 15;
-  public static final int CIRCULO = 10;
-  public static final int SUMA = 19;
-  public static final int ID = 58;
+  public static final int FIN = 39;
+  public static final int NOT = 51;
+  public static final int AND = 49;
+  public static final int IGUAL = 54;
+  public static final int OR = 50;
+  public static final int IGUALDAD = 43;
+  public static final int MIENTRAS = 5;
+  public static final int LETRA_SIZE_BLOQUE = 37;
+  public static final int ARIAL = 13;
+  public static final int CIRCULO = 8;
+  public static final int SUMA = 17;
+  public static final int ID = 56;
   public static final int EOF = 0;
   public static final int error = 1;
-  public static final int COMA = 57;
-  public static final int COLOR_BLOQUE = 36;
-  public static final int COMIC_SANS = 17;
-  public static final int PIPE = 23;
-  public static final int MENOR = 48;
-  public static final int COLOR_MIENTRAS = 31;
-  public static final int COLOR_TEXTO_MIENTRAS = 30;
-  public static final int VERDANA = 18;
-  public static final int LETRA_BLOQUE = 38;
-  public static final int TIMES_NEW_ROMAN = 16;
-  public static final int MAYOR = 47;
-  public static final int ELIPSE = 9;
-  public static final int NUMERO_DECIMAL = 62;
-  public static final int ROMBO = 13;
-  public static final int RECTANGULO = 12;
-  public static final int FIGURA_MIENTRAS = 32;
-  public static final int MAYOR_IGUAL = 49;
-  public static final int DEFAULT = 24;
-  public static final int LEER = 44;
-  public static final int HEXADECIMAL = 59;
-  public static final int HACER = 7;
-  public static final int PARENTESIS_CERRADO = 55;
-  public static final int COLOR_SI = 26;
-  public static final int LETRA_SI = 28;
-  public static final int PARALELOGRAMO = 11;
-  public static final int INICIO = 40;
-  public static final int TEXTO = 60;
-  public static final int MENOR_IGUAL = 50;
-  public static final int FINSI = 5;
-  public static final int DIVISION = 22;
-  public static final int COLOR_TEXTO_SI = 25;
-  public static final int NUMERO_ENTERO = 61;
-  public static final int FIGURA_SI = 27;
-  public static final int VAR = 42;
-  public static final int MULTIPLICACION = 21;
-  public static final int LETRA_SIZE_SI = 29;
+  public static final int COMA = 55;
+  public static final int COLOR_BLOQUE = 34;
+  public static final int COMIC_SANS = 15;
+  public static final int PIPE = 21;
+  public static final int MENOR = 46;
+  public static final int COLOR_MIENTRAS = 29;
+  public static final int COLOR_TEXTO_MIENTRAS = 28;
+  public static final int VERDANA = 16;
+  public static final int LETRA_BLOQUE = 36;
+  public static final int TIMES_NEW_ROMAN = 14;
+  public static final int MAYOR = 45;
+  public static final int ELIPSE = 7;
+  public static final int NUMERO_DECIMAL = 59;
+  public static final int ROMBO = 11;
+  public static final int RECTANGULO = 10;
+  public static final int FIGURA_MIENTRAS = 30;
+  public static final int MAYOR_IGUAL = 47;
+  public static final int DEFAULT = 22;
+  public static final int LEER = 42;
+  public static final int HEXADECIMAL = 57;
+  public static final int HACER = 6;
+  public static final int PARENTESIS_CERRADO = 53;
+  public static final int COLOR_SI = 24;
+  public static final int LETRA_SI = 26;
+  public static final int PARALELOGRAMO = 9;
+  public static final int INICIO = 38;
+  public static final int TEXTO = 58;
+  public static final int MENOR_IGUAL = 48;
+  public static final int DIVISION = 20;
+  public static final int COLOR_TEXTO_SI = 23;
+  public static final int NUMERO_ENTERO = 60;
+  public static final int FIGURA_SI = 25;
+  public static final int VAR = 40;
+  public static final int MULTIPLICACION = 19;
+  public static final int LETRA_SIZE_SI = 27;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
   "SEPARADOR",
   "SI",
   "ENTONCES",
-  "FINSI",
   "MIENTRAS",
   "HACER",
-  "FINMIENTRAS",
   "ELIPSE",
   "CIRCULO",
   "PARALELOGRAMO",
@@ -133,8 +129,8 @@ public class sym {
   "ID",
   "HEXADECIMAL",
   "TEXTO",
-  "NUMERO_ENTERO",
-  "NUMERO_DECIMAL"
+  "NUMERO_DECIMAL",
+  "NUMERO_ENTERO"
   };
 }
 
