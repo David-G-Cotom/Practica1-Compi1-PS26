@@ -109,20 +109,20 @@ public class Lexer implements java_cup.runtime.Scanner {
     "\3\0\1\1\3\2\1\3\1\4\1\5\2\1\1\6"+
     "\1\7\1\10\1\11\1\12\1\13\1\14\2\15\1\16"+
     "\1\17\1\20\16\21\1\1\1\22\1\23\2\24\1\25"+
-    "\1\26\2\27\1\30\5\0\1\31\1\0\1\32\1\33"+
-    "\1\34\17\21\1\35\3\21\1\36\1\24\1\27\5\0"+
-    "\1\37\5\21\1\40\12\21\1\41\1\21\1\42\4\0"+
-    "\5\21\2\43\1\21\1\44\7\21\4\0\1\45\5\21"+
-    "\1\46\5\21\1\47\2\21\4\0\2\21\1\50\2\21"+
-    "\1\51\6\21\4\0\1\52\2\21\1\43\1\21\1\53"+
-    "\3\21\1\54\4\0\1\55\4\0\1\21\1\56\1\57"+
-    "\3\21\2\0\1\60\6\0\1\61\4\21\5\0\1\62"+
-    "\3\0\1\63\1\21\1\64\1\21\10\0\3\21\10\0"+
-    "\3\21\1\65\4\0\1\66\4\0\1\67\2\21\4\0"+
-    "\1\70\4\0\1\71\2\21\1\72\2\0\1\73\1\0"+
-    "\1\74\2\0\1\21\1\75\2\0\1\76\2\0\1\21"+
-    "\4\0\1\21\2\0\1\77\1\0\1\21\1\100\2\0"+
-    "\1\21\1\0\1\101\1\21\1\102\1\103";
+    "\1\23\2\26\1\27\5\0\1\30\1\0\1\31\1\32"+
+    "\1\33\17\21\1\34\3\21\1\35\1\24\1\26\5\0"+
+    "\1\36\5\21\1\37\12\21\1\40\1\21\1\41\4\0"+
+    "\5\21\2\42\1\21\1\43\7\21\4\0\1\44\5\21"+
+    "\1\45\5\21\1\46\2\21\4\0\2\21\1\47\2\21"+
+    "\1\50\6\21\4\0\1\51\2\21\1\42\1\21\1\52"+
+    "\3\21\1\53\4\0\1\54\4\0\1\21\1\55\1\56"+
+    "\3\21\2\0\1\57\6\0\1\60\4\21\5\0\1\61"+
+    "\3\0\1\62\1\21\1\63\1\21\10\0\3\21\10\0"+
+    "\3\21\1\64\4\0\1\65\4\0\1\66\2\21\4\0"+
+    "\1\67\4\0\1\70\2\21\1\71\2\0\1\72\1\0"+
+    "\1\73\2\0\1\21\1\74\2\0\1\75\2\0\1\21"+
+    "\4\0\1\21\2\0\1\76\1\0\1\21\1\77\2\0"+
+    "\1\21\1\0\1\100\1\21\1\101\1\102";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[298];
@@ -952,343 +952,338 @@ public class Lexer implements java_cup.runtime.Scanner {
             { error(yytext());
             }
           // fall through
-          case 68: break;
+          case 67: break;
           case 2:
             { /* Ignore */
             }
           // fall through
-          case 69: break;
+          case 68: break;
           case 3:
             { return symbol(sym.NOT, yytext());
             }
           // fall through
-          case 70: break;
+          case 69: break;
           case 4:
             { System.out.println("SE EMPIEZA TEXTO"); this.string.setLength(0); yybegin(TEXT);
             }
           // fall through
-          case 71: break;
+          case 70: break;
           case 5:
             { this.string.setLength(0); yybegin(COMMENT);
             }
           // fall through
-          case 72: break;
+          case 71: break;
           case 6:
             { return symbol(sym.PARENTESIS_ABIERTO, yytext());
             }
           // fall through
-          case 73: break;
+          case 72: break;
           case 7:
             { return symbol(sym.PARENTESIS_CERRADO, yytext());
             }
           // fall through
-          case 74: break;
+          case 73: break;
           case 8:
             { return symbol(sym.MULTIPLICACION);
             }
           // fall through
-          case 75: break;
+          case 74: break;
           case 9:
             { return symbol(sym.SUMA);
             }
           // fall through
-          case 76: break;
+          case 75: break;
           case 10:
             { return symbol(sym.COMA, yytext());
             }
           // fall through
-          case 77: break;
+          case 76: break;
           case 11:
             { return symbol(sym.RESTA);
             }
           // fall through
-          case 78: break;
+          case 77: break;
           case 12:
             { return symbol(sym.DIVISION);
             }
           // fall through
-          case 79: break;
+          case 78: break;
           case 13:
             { return symbol(sym.NUMERO_ENTERO, Integer.parseInt(yytext()));
             }
           // fall through
-          case 80: break;
+          case 79: break;
           case 14:
             { return symbol(sym.MENOR, yytext());
             }
           // fall through
-          case 81: break;
+          case 80: break;
           case 15:
             { return symbol(sym.IGUAL, yytext());
             }
           // fall through
-          case 82: break;
+          case 81: break;
           case 16:
             { return symbol(sym.MAYOR, yytext());
             }
           // fall through
-          case 83: break;
+          case 82: break;
           case 17:
             { return symbol(sym.ID, yytext());
             }
           // fall through
-          case 84: break;
+          case 83: break;
           case 18:
             { return symbol(sym.PIPE);
             }
           // fall through
-          case 85: break;
+          case 84: break;
           case 19:
-            { System.out.println("CADENA: " + yytext()); this.string.append(yytext());
+            { this.string.append(yytext());
             }
           // fall through
-          case 86: break;
+          case 85: break;
           case 20:
             { this.string.append("\n");
             }
           // fall through
-          case 87: break;
+          case 86: break;
           case 21:
             { System.out.println("TEXTO:" + this.string.toString().trim());
         yybegin(YYINITIAL);
         return symbol(sym.TEXTO, this.string.toString().trim());
             }
           // fall through
-          case 88: break;
+          case 87: break;
           case 22:
-            { this.string.append(yytext());
-            }
-          // fall through
-          case 89: break;
-          case 23:
             { yybegin(YYINITIAL);
         //return symbol(sym.COMENTARIO, this.string.toString().trim());
             }
           // fall through
-          case 90: break;
-          case 24:
+          case 88: break;
+          case 23:
             { return symbol(sym.DIFERENTE, yytext());
             }
           // fall through
-          case 91: break;
-          case 25:
+          case 89: break;
+          case 24:
             { return symbol(sym.AND, yytext());
             }
           // fall through
-          case 92: break;
-          case 26:
+          case 90: break;
+          case 25:
             { return symbol(sym.MENOR_IGUAL, yytext());
             }
           // fall through
-          case 93: break;
-          case 27:
+          case 91: break;
+          case 26:
             { return symbol(sym.IGUALDAD, yytext());
             }
           // fall through
-          case 94: break;
-          case 28:
+          case 92: break;
+          case 27:
             { return symbol(sym.MAYOR_IGUAL, yytext());
             }
           // fall through
-          case 95: break;
-          case 29:
+          case 93: break;
+          case 28:
             { return symbol(sym.SI);
             }
           // fall through
-          case 96: break;
-          case 30:
+          case 94: break;
+          case 29:
             { return symbol(sym.OR, yytext());
             }
           // fall through
-          case 97: break;
-          case 31:
+          case 95: break;
+          case 30:
             { return symbol(sym.NUMERO_DECIMAL, Double.parseDouble(yytext()));
             }
           // fall through
-          case 98: break;
-          case 32:
+          case 96: break;
+          case 31:
             { return symbol(sym.FIN, yytext());
             }
           // fall through
-          case 99: break;
-          case 33:
+          case 97: break;
+          case 32:
             { return symbol(sym.VAR, yytext());
             }
           // fall through
-          case 100: break;
-          case 34:
+          case 98: break;
+          case 33:
             { return symbol(sym.SEPARADOR);
             }
           // fall through
-          case 101: break;
-          case 35:
+          case 99: break;
+          case 34:
             { this.string.setLength(0);
         this.string.append(yytext());
         this.string.deleteCharAt(0);
         return symbol(sym.HEXADECIMAL, this.string.toString().trim());
             }
           // fall through
-          case 102: break;
-          case 36:
+          case 100: break;
+          case 35:
             { return symbol(sym.LEER, yytext());
             }
           // fall through
-          case 103: break;
-          case 37:
+          case 101: break;
+          case 36:
             { return symbol(sym.ARIAL);
             }
           // fall through
-          case 104: break;
-          case 38:
+          case 102: break;
+          case 37:
             { return symbol(sym.HACER);
             }
           // fall through
-          case 105: break;
-          case 39:
+          case 103: break;
+          case 38:
             { return symbol(sym.ROMBO);
             }
           // fall through
-          case 106: break;
-          case 40:
+          case 104: break;
+          case 39:
             { return symbol(sym.ELIPSE);
             }
           // fall through
-          case 107: break;
-          case 41:
+          case 105: break;
+          case 40:
             { return symbol(sym.INICIO, yytext());
             }
           // fall through
-          case 108: break;
-          case 42:
+          case 106: break;
+          case 41:
             { return symbol(sym.CIRCULO);
             }
           // fall through
-          case 109: break;
-          case 43:
+          case 107: break;
+          case 42:
             { return symbol(sym.MOSTRAR, yytext());
             }
           // fall through
-          case 110: break;
-          case 44:
+          case 108: break;
+          case 43:
             { return symbol(sym.VERDANA);
             }
           // fall through
-          case 111: break;
-          case 45:
+          case 109: break;
+          case 44:
             { return symbol(sym.DEFAULT);
             }
           // fall through
-          case 112: break;
-          case 46:
+          case 110: break;
+          case 45:
             { return symbol(sym.ENTONCES);
             }
           // fall through
-          case 113: break;
-          case 47:
+          case 111: break;
+          case 46:
             { return symbol(sym.MIENTRAS);
             }
           // fall through
-          case 114: break;
-          case 48:
+          case 112: break;
+          case 47:
             { return symbol(sym.COLOR_SI);
             }
           // fall through
-          case 115: break;
-          case 49:
+          case 113: break;
+          case 48:
             { return symbol(sym.LETRA_SI);
             }
           // fall through
-          case 116: break;
-          case 50:
+          case 114: break;
+          case 49:
             { return symbol(sym.FIGURA_SI);
             }
           // fall through
-          case 117: break;
-          case 51:
+          case 115: break;
+          case 50:
             { return symbol(sym.COMIC_SANS);
             }
           // fall through
-          case 118: break;
-          case 52:
+          case 116: break;
+          case 51:
             { return symbol(sym.RECTANGULO);
             }
           // fall through
-          case 119: break;
-          case 53:
+          case 117: break;
+          case 52:
             { return symbol(sym.COLOR_BLOQUE);
             }
           // fall through
-          case 120: break;
-          case 54:
+          case 118: break;
+          case 53:
             { return symbol(sym.LETRA_BLOQUE);
             }
           // fall through
-          case 121: break;
-          case 55:
+          case 119: break;
+          case 54:
             { return symbol(sym.PARALELOGRAMO);
             }
           // fall through
-          case 122: break;
-          case 56:
+          case 120: break;
+          case 55:
             { return symbol(sym.FIGURA_BLOQUE);
             }
           // fall through
-          case 123: break;
-          case 57:
+          case 121: break;
+          case 56:
             { return symbol(sym.LETRA_SIZE_SI);
             }
           // fall through
-          case 124: break;
-          case 58:
+          case 122: break;
+          case 57:
             { return symbol(sym.COLOR_MIENTRAS);
             }
           // fall through
-          case 125: break;
-          case 59:
+          case 123: break;
+          case 58:
             { return symbol(sym.COLOR_TEXTO_SI);
             }
           // fall through
-          case 126: break;
-          case 60:
+          case 124: break;
+          case 59:
             { return symbol(sym.LETRA_MIENTRAS);
             }
           // fall through
-          case 127: break;
-          case 61:
+          case 125: break;
+          case 60:
             { return symbol(sym.TIMES_NEW_ROMAN);
             }
           // fall through
-          case 128: break;
-          case 62:
+          case 126: break;
+          case 61:
             { return symbol(sym.FIGURA_MIENTRAS);
             }
           // fall through
-          case 129: break;
-          case 63:
+          case 127: break;
+          case 62:
             { return symbol(sym.LETRA_SIZE_BLOQUE);
             }
           // fall through
-          case 130: break;
-          case 64:
+          case 128: break;
+          case 63:
             { return symbol(sym.COLOR_TEXTO_BLOQUE);
             }
           // fall through
-          case 131: break;
-          case 65:
+          case 129: break;
+          case 64:
             { return symbol(sym.LETRA_SIZE_MIENTRAS);
             }
           // fall through
-          case 132: break;
-          case 66:
+          case 130: break;
+          case 65:
             { return symbol(sym.COLOR_TEXTO_MIENTRAS);
             }
           // fall through
-          case 133: break;
-          case 67:
+          case 131: break;
+          case 66:
             { return symbol(sym.RECTANGULO_REDONDEADO);
             }
           // fall through
-          case 134: break;
+          case 132: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

@@ -1,0 +1,1353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="generator" content="Railroad Diagram Generator 2.6" />
+      <style type="text/css">
+    ::-moz-selection
+    {
+      color: #FFFCF0;
+      background: #0F0C00;
+    }
+    ::selection
+    {
+      color: #FFFCF0;
+      background: #0F0C00;
+    }
+    body
+    {
+      font: normal 12px Verdana, sans-serif;
+      color: #0F0C00;
+      background: #FFFCF0;
+    }
+    .ebnf a
+    {
+      text-decoration: none;
+    }
+    .ebnf a:hover
+    {
+      color: #050400;
+      text-decoration: underline;
+    }
+    .signature
+    {
+      color: #806600;
+      font-size: 11px;
+      text-align: right;
+    }
+    a:link, a:visited
+    {
+      color: #0F0C00;
+    }
+    a:link.signature, a:visited.signature
+    {
+      color: #806600;
+    }
+    div.ebnf
+    {
+      padding: 10px;
+      background: #FFF6D1;
+      width: 992px;
+    }
+    .ebnf div
+    {
+      padding-left: 13ch;
+      text-indent: -13ch;
+    }
+    .ebnf code
+    {
+      font:12px SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+    }
+  </style><svg xmlns="http://www.w3.org/2000/svg">
+         <defs>
+            <style type="text/css">
+    @namespace "http://www.w3.org/2000/svg";
+    .line                 {fill: none; stroke: #332900; stroke-width: 1;}
+    .bold-line            {stroke: #141000; shape-rendering: crispEdges; stroke-width: 2;}
+    .thin-line            {stroke: #1F1800; shape-rendering: crispEdges}
+    .filled               {fill: #332900; stroke: none;}
+    text.terminal         {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #141000;
+                            font-weight: bold;
+                          }
+    text.nonterminal      {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #1A1400;
+                            font-weight: normal;
+                          }
+    text.regexp           {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #1F1800;
+                            font-weight: normal;
+                          }
+    rect, circle, polygon {fill: #332900; stroke: #332900;}
+    rect.terminal         {fill: #FFDB4D; stroke: #332900; stroke-width: 1;}
+    rect.nonterminal      {fill: #FFEC9E; stroke: #332900; stroke-width: 1;}
+    rect.text             {fill: none; stroke: none;}
+    polygon.regexp        {fill: #FFF4C7; stroke: #332900; stroke-width: 1;}
+  </style>
+         </defs></svg></head>
+   <body>
+      <p style="font-size: 14px; font-weight:bold"><a name="fuente_entrada">fuente_entrada:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="477" height="53">
+         <polygon points="9 33 1 29 1 37"/>
+         <polygon points="17 33 9 29 9 37"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#parte1" xlink:title="parte1">
+            <rect x="31" y="19" width="62" height="32"/>
+            <rect x="29" y="17" width="62" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="37">parte1</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#SEPARADOR" xlink:title="SEPARADOR">
+            <rect x="113" y="19" width="96" height="32"/>
+            <rect x="111" y="17" width="96" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="121" y="37">SEPARADOR</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_configuracion" xlink:title="instruccion_configuracion">
+            <rect x="249" y="19" width="180" height="32"/>
+            <rect x="247" y="17" width="180" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="257" y="37">instruccion_configuracion</text></a><path class="line" d="m17 33 h2 m0 0 h10 m62 0 h10 m0 0 h10 m96 0 h10 m20 0 h10 m180 0 h10 m-220 0 l20 0 m-1 0 q-9 0 -9 -10 l0 -12 q0 -10 10 -10 m200 32 l20 0 m-20 0 q10 0 10 -10 l0 -12 q0 -10 -10 -10 m-200 0 h10 m0 0 h190 m23 32 h-3"/>
+         <polygon points="467 33 475 29 475 37"/>
+         <polygon points="467 33 459 29 459 37"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#fuente_entrada" title="fuente_entrada">fuente_entrada</a></div>
+               <div>         ::= <a href="#parte1" title="parte1">parte1</a> <a href="#SEPARADOR" title="SEPARADOR">SEPARADOR</a> <a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a>+</div></code></div>
+      </p>
+      <p>no references</p><br /><p style="font-size: 14px; font-weight:bold"><a name="parte1">parte1:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="379" height="53">
+         <polygon points="9 33 1 29 1 37"/>
+         <polygon points="17 33 9 29 9 37"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#INICIO" xlink:title="INICIO">
+            <rect x="31" y="19" width="62" height="32"/>
+            <rect x="29" y="17" width="62" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="37">INICIO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_codigo" xlink:title="instruccion_codigo">
+            <rect x="133" y="19" width="138" height="32"/>
+            <rect x="131" y="17" width="138" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="141" y="37">instruccion_codigo</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#FIN" xlink:title="FIN">
+            <rect x="311" y="19" width="40" height="32"/>
+            <rect x="309" y="17" width="40" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="319" y="37">FIN</text></a><path class="line" d="m17 33 h2 m0 0 h10 m62 0 h10 m20 0 h10 m138 0 h10 m-178 0 l20 0 m-1 0 q-9 0 -9 -10 l0 -12 q0 -10 10 -10 m158 32 l20 0 m-20 0 q10 0 10 -10 l0 -12 q0 -10 -10 -10 m-158 0 h10 m0 0 h148 m20 32 h10 m40 0 h10 m3 0 h-3"/>
+         <polygon points="369 33 377 29 377 37"/>
+         <polygon points="369 33 361 29 361 37"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#parte1" title="parte1">parte1</a>   ::= <a href="#INICIO" title="INICIO">INICIO</a> <a href="#instruccion_codigo" title="instruccion_codigo">instruccion_codigo</a>+ <a href="#FIN" title="FIN">FIN</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#fuente_entrada" title="fuente_entrada">fuente_entrada</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_codigo">instruccion_codigo:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="235" height="125">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#si" xlink:title="si">
+            <rect x="51" y="3" width="30" height="32"/>
+            <rect x="49" y="1" width="30" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">si</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#mientras" xlink:title="mientras">
+            <rect x="51" y="47" width="76" height="32"/>
+            <rect x="49" y="45" width="76" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">mientras</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_simple" xlink:title="instruccion_simple">
+            <rect x="51" y="91" width="136" height="32"/>
+            <rect x="49" y="89" width="136" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="109">instruccion_simple</text></a><path class="line" d="m17 17 h2 m20 0 h10 m30 0 h10 m0 0 h106 m-176 0 h20 m156 0 h20 m-196 0 q10 0 10 10 m176 0 q0 -10 10 -10 m-186 10 v24 m176 0 v-24 m-176 24 q0 10 10 10 m156 0 q10 0 10 -10 m-166 10 h10 m76 0 h10 m0 0 h60 m-166 -10 v20 m176 0 v-20 m-176 20 v24 m176 0 v-24 m-176 24 q0 10 10 10 m156 0 q10 0 10 -10 m-166 10 h10 m136 0 h10 m23 -88 h-3"/>
+         <polygon points="225 17 233 13 233 21"/>
+         <polygon points="225 17 217 13 217 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_codigo" title="instruccion_codigo">instruccion_codigo</a></div>
+               <div>         ::= <a href="#si" title="si">si</a></div>
+               <div>           | <a href="#mientras" title="mientras">mientras</a></div>
+               <div>           | <a href="#instruccion_simple" title="instruccion_simple">instruccion_simple</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#parte1" title="parte1">parte1</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="contenido_bloque">contenido_bloque:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="235" height="53">
+         <polygon points="9 33 1 29 1 37"/>
+         <polygon points="17 33 9 29 9 37"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_simple" xlink:title="instruccion_simple">
+            <rect x="51" y="19" width="136" height="32"/>
+            <rect x="49" y="17" width="136" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="37">instruccion_simple</text></a><path class="line" d="m17 33 h2 m20 0 h10 m136 0 h10 m-176 0 l20 0 m-1 0 q-9 0 -9 -10 l0 -12 q0 -10 10 -10 m156 32 l20 0 m-20 0 q10 0 10 -10 l0 -12 q0 -10 -10 -10 m-156 0 h10 m0 0 h146 m23 32 h-3"/>
+         <polygon points="225 33 233 29 233 37"/>
+         <polygon points="225 33 217 29 217 37"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#contenido_bloque" title="contenido_bloque">contenido_bloque</a></div>
+               <div>         ::= <a href="#instruccion_simple" title="instruccion_simple">instruccion_simple</a>+</div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#contenido_bloque_opt" title="contenido_bloque_opt">contenido_bloque_opt</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_simple">instruccion_simple:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="169" height="125">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#variable" xlink:title="variable">
+            <rect x="51" y="3" width="70" height="32"/>
+            <rect x="49" y="1" width="70" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">variable</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#mostrar" xlink:title="mostrar">
+            <rect x="51" y="47" width="70" height="32"/>
+            <rect x="49" y="45" width="70" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">mostrar</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#leer" xlink:title="leer">
+            <rect x="51" y="91" width="44" height="32"/>
+            <rect x="49" y="89" width="44" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="109">leer</text></a><path class="line" d="m17 17 h2 m20 0 h10 m70 0 h10 m-110 0 h20 m90 0 h20 m-130 0 q10 0 10 10 m110 0 q0 -10 10 -10 m-120 10 v24 m110 0 v-24 m-110 24 q0 10 10 10 m90 0 q10 0 10 -10 m-100 10 h10 m70 0 h10 m-100 -10 v20 m110 0 v-20 m-110 20 v24 m110 0 v-24 m-110 24 q0 10 10 10 m90 0 q10 0 10 -10 m-100 10 h10 m44 0 h10 m0 0 h26 m23 -88 h-3"/>
+         <polygon points="159 17 167 13 167 21"/>
+         <polygon points="159 17 151 13 151 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_simple" title="instruccion_simple">instruccion_simple</a></div>
+               <div>         ::= <a href="#variable" title="variable">variable</a></div>
+               <div>           | <a href="#mostrar" title="mostrar">mostrar</a></div>
+               <div>           | <a href="#leer" title="leer">leer</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#contenido_bloque" title="contenido_bloque">contenido_bloque</a></li>
+            <li><a href="#instruccion_codigo" title="instruccion_codigo">instruccion_codigo</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="variable">variable:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="439" height="81">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#VAR" xlink:title="VAR">
+            <rect x="51" y="3" width="44" height="32"/>
+            <rect x="49" y="1" width="44" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">VAR</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ID" xlink:title="ID">
+            <rect x="115" y="3" width="34" height="32"/>
+            <rect x="113" y="1" width="34" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="123" y="21">ID</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#asignacion" xlink:title="asignacion">
+            <rect x="169" y="3" width="88" height="32"/>
+            <rect x="167" y="1" width="88" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="177" y="21">asignacion</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ID" xlink:title="ID">
+            <rect x="51" y="47" width="34" height="32"/>
+            <rect x="49" y="45" width="34" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">ID</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="105" y="47" width="58" height="32"/>
+            <rect x="103" y="45" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="113" y="65">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_matematica_literal" xlink:title="operacion_matematica_literal">
+            <rect x="183" y="47" width="208" height="32"/>
+            <rect x="181" y="45" width="208" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="191" y="65">operacion_matematica_literal</text></a><path class="line" d="m17 17 h2 m20 0 h10 m44 0 h10 m0 0 h10 m34 0 h10 m0 0 h10 m88 0 h10 m0 0 h134 m-380 0 h20 m360 0 h20 m-400 0 q10 0 10 10 m380 0 q0 -10 10 -10 m-390 10 v24 m380 0 v-24 m-380 24 q0 10 10 10 m360 0 q10 0 10 -10 m-370 10 h10 m34 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m208 0 h10 m23 -44 h-3"/>
+         <polygon points="429 17 437 13 437 21"/>
+         <polygon points="429 17 421 13 421 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#variable" title="variable">variable</a> ::= <a href="#VAR" title="VAR">VAR</a> <a href="#ID" title="ID">ID</a> <a href="#asignacion" title="asignacion">asignacion</a></div>
+               <div>           | <a href="#ID" title="ID">ID</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#operacion_matematica_literal" title="operacion_matematica_literal">operacion_matematica_literal</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_simple" title="instruccion_simple">instruccion_simple</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="asignacion">asignacion:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="385" height="57">
+         <polygon points="9 5 1 1 1 9"/>
+         <polygon points="17 5 9 1 9 9"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="51" y="23" width="58" height="32"/>
+            <rect x="49" y="21" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="41">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_matematica_literal" xlink:title="operacion_matematica_literal">
+            <rect x="129" y="23" width="208" height="32"/>
+            <rect x="127" y="21" width="208" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="137" y="41">operacion_matematica_literal</text></a><path class="line" d="m17 5 h2 m20 0 h10 m0 0 h296 m-326 0 h20 m306 0 h20 m-346 0 q10 0 10 10 m326 0 q0 -10 10 -10 m-336 10 v12 m326 0 v-12 m-326 12 q0 10 10 10 m306 0 q10 0 10 -10 m-316 10 h10 m58 0 h10 m0 0 h10 m208 0 h10 m23 -32 h-3"/>
+         <polygon points="375 5 383 1 383 9"/>
+         <polygon points="375 5 367 1 367 9"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#asignacion" title="asignacion">asignacion</a></div>
+               <div>         ::= ( <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#operacion_matematica_literal" title="operacion_matematica_literal">operacion_matematica_literal</a> )?</div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#variable" title="variable">variable</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="si">si:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="927" height="103">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#SI" xlink:title="SI">
+            <rect x="31" y="3" width="32" height="32"/>
+            <rect x="29" y="1" width="32" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">SI</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PARENTESIS_ABIERTO" xlink:title="PARENTESIS_ABIERTO">
+            <rect x="83" y="3" width="160" height="32"/>
+            <rect x="81" y="1" width="160" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="91" y="21">PARENTESIS_ABIERTO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_lra" xlink:title="operacion_lra">
+            <rect x="263" y="3" width="106" height="32"/>
+            <rect x="261" y="1" width="106" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="271" y="21">operacion_lra</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PARENTESIS_CERRADO" xlink:title="PARENTESIS_CERRADO">
+            <rect x="389" y="3" width="166" height="32"/>
+            <rect x="387" y="1" width="166" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="397" y="21">PARENTESIS_CERRADO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ENTONCES" xlink:title="ENTONCES">
+            <rect x="575" y="3" width="88" height="32"/>
+            <rect x="573" y="1" width="88" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="583" y="21">ENTONCES</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#contenido_bloque_opt" xlink:title="contenido_bloque_opt">
+            <rect x="683" y="3" width="162" height="32"/>
+            <rect x="681" y="1" width="162" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="691" y="21">contenido_bloque_opt</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#FIN" xlink:title="FIN">
+            <rect x="865" y="3" width="40" height="32"/>
+            <rect x="863" y="1" width="40" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="873" y="21">FIN</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#SI" xlink:title="SI">
+            <rect x="867" y="69" width="32" height="32"/>
+            <rect x="865" y="67" width="32" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="875" y="87">SI</text></a><path class="line" d="m17 17 h2 m0 0 h10 m32 0 h10 m0 0 h10 m160 0 h10 m0 0 h10 m106 0 h10 m0 0 h10 m166 0 h10 m0 0 h10 m88 0 h10 m0 0 h10 m162 0 h10 m0 0 h10 m40 0 h10 m2 0 l2 0 m2 0 l2 0 m2 0 l2 0 m-82 66 l2 0 m2 0 l2 0 m2 0 l2 0 m2 0 h10 m32 0 h10 m3 0 h-3"/>
+         <polygon points="917 83 925 79 925 87"/>
+         <polygon points="917 83 909 79 909 87"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#si" title="si">si</a>       ::= <a href="#SI" title="SI">SI</a> <a href="#PARENTESIS_ABIERTO" title="PARENTESIS_ABIERTO">PARENTESIS_ABIERTO</a> <a href="#operacion_lra" title="operacion_lra">operacion_lra</a> <a href="#PARENTESIS_CERRADO" title="PARENTESIS_CERRADO">PARENTESIS_CERRADO</a> <a href="#ENTONCES" title="ENTONCES">ENTONCES</a> <a href="#contenido_bloque_opt" title="contenido_bloque_opt">contenido_bloque_opt</a> <a href="#FIN" title="FIN">FIN</a> <a href="#SI" title="SI">SI</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_codigo" title="instruccion_codigo">instruccion_codigo</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="contenido_bloque_opt">contenido_bloque_opt:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="233" height="57">
+         <polygon points="9 5 1 1 1 9"/>
+         <polygon points="17 5 9 1 9 9"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#contenido_bloque" xlink:title="contenido_bloque">
+            <rect x="51" y="23" width="134" height="32"/>
+            <rect x="49" y="21" width="134" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="41">contenido_bloque</text></a><path class="line" d="m17 5 h2 m20 0 h10 m0 0 h144 m-174 0 h20 m154 0 h20 m-194 0 q10 0 10 10 m174 0 q0 -10 10 -10 m-184 10 v12 m174 0 v-12 m-174 12 q0 10 10 10 m154 0 q10 0 10 -10 m-164 10 h10 m134 0 h10 m23 -32 h-3"/>
+         <polygon points="223 5 231 1 231 9"/>
+         <polygon points="223 5 215 1 215 9"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#contenido_bloque_opt" title="contenido_bloque_opt">contenido_bloque_opt</a></div>
+               <div>         ::= <a href="#contenido_bloque" title="contenido_bloque">contenido_bloque</a>?</div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#mientras" title="mientras">mientras</a></li>
+            <li><a href="#si" title="si">si</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="operacion_lra">operacion_lra:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="213" height="81">
+         <polygon points="9 61 1 57 1 65"/>
+         <polygon points="17 61 9 57 9 65"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_and" xlink:title="operacion_and">
+            <rect x="51" y="47" width="114" height="32"/>
+            <rect x="49" y="45" width="114" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">operacion_and</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#OR" xlink:title="OR">
+            <rect x="51" y="3" width="38" height="32"/>
+            <rect x="49" y="1" width="38" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">OR</text></a><path class="line" d="m17 61 h2 m20 0 h10 m114 0 h10 m-154 0 l20 0 m-1 0 q-9 0 -9 -10 l0 -24 q0 -10 10 -10 m134 44 l20 0 m-20 0 q10 0 10 -10 l0 -24 q0 -10 -10 -10 m-134 0 h10 m38 0 h10 m0 0 h76 m23 44 h-3"/>
+         <polygon points="203 61 211 57 211 65"/>
+         <polygon points="203 61 195 57 195 65"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#operacion_lra" title="operacion_lra">operacion_lra</a></div>
+               <div>         ::= <a href="#operacion_and" title="operacion_and">operacion_and</a> ( <a href="#OR" title="OR">OR</a> <a href="#operacion_and" title="operacion_and">operacion_and</a> )*</div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#fl" title="fl">fl</a></li>
+            <li><a href="#mientras" title="mientras">mientras</a></li>
+            <li><a href="#operacion_not" title="operacion_not">operacion_not</a></li>
+            <li><a href="#si" title="si">si</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="operacion_and">operacion_and:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="211" height="81">
+         <polygon points="9 61 1 57 1 65"/>
+         <polygon points="17 61 9 57 9 65"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_not" xlink:title="operacion_not">
+            <rect x="51" y="47" width="112" height="32"/>
+            <rect x="49" y="45" width="112" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">operacion_not</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#AND" xlink:title="AND">
+            <rect x="51" y="3" width="46" height="32"/>
+            <rect x="49" y="1" width="46" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">AND</text></a><path class="line" d="m17 61 h2 m20 0 h10 m112 0 h10 m-152 0 l20 0 m-1 0 q-9 0 -9 -10 l0 -24 q0 -10 10 -10 m132 44 l20 0 m-20 0 q10 0 10 -10 l0 -24 q0 -10 -10 -10 m-132 0 h10 m46 0 h10 m0 0 h66 m23 44 h-3"/>
+         <polygon points="201 61 209 57 209 65"/>
+         <polygon points="201 61 193 57 193 65"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#operacion_and" title="operacion_and">operacion_and</a></div>
+               <div>         ::= <a href="#operacion_not" title="operacion_not">operacion_not</a> ( <a href="#AND" title="AND">AND</a> <a href="#operacion_not" title="operacion_not">operacion_not</a> )*</div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#operacion_lra" title="operacion_lra">operacion_lra</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="operacion_not">operacion_not:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="269" height="81">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NOT" xlink:title="NOT">
+            <rect x="51" y="3" width="44" height="32"/>
+            <rect x="49" y="1" width="44" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">NOT</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_lra" xlink:title="operacion_lra">
+            <rect x="115" y="3" width="106" height="32"/>
+            <rect x="113" y="1" width="106" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="123" y="21">operacion_lra</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_relacional" xlink:title="operacion_relacional">
+            <rect x="51" y="47" width="152" height="32"/>
+            <rect x="49" y="45" width="152" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">operacion_relacional</text></a><path class="line" d="m17 17 h2 m20 0 h10 m44 0 h10 m0 0 h10 m106 0 h10 m-210 0 h20 m190 0 h20 m-230 0 q10 0 10 10 m210 0 q0 -10 10 -10 m-220 10 v24 m210 0 v-24 m-210 24 q0 10 10 10 m190 0 q10 0 10 -10 m-200 10 h10 m152 0 h10 m0 0 h18 m23 -44 h-3"/>
+         <polygon points="259 17 267 13 267 21"/>
+         <polygon points="259 17 251 13 251 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#operacion_not" title="operacion_not">operacion_not</a></div>
+               <div>         ::= <a href="#NOT" title="NOT">NOT</a> <a href="#operacion_lra" title="operacion_lra">operacion_lra</a></div>
+               <div>           | <a href="#operacion_relacional" title="operacion_relacional">operacion_relacional</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#operacion_and" title="operacion_and">operacion_and</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="operacion_relacional">operacion_relacional:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="701" height="69">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_matematica_literal" xlink:title="operacion_matematica_literal">
+            <rect x="31" y="3" width="208" height="32"/>
+            <rect x="29" y="1" width="208" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">operacion_matematica_literal</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operador_relacional" xlink:title="operador_relacional">
+            <rect x="279" y="35" width="146" height="32"/>
+            <rect x="277" y="33" width="146" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="287" y="53">operador_relacional</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_matematica_literal" xlink:title="operacion_matematica_literal">
+            <rect x="445" y="35" width="208" height="32"/>
+            <rect x="443" y="33" width="208" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="453" y="53">operacion_matematica_literal</text></a><path class="line" d="m17 17 h2 m0 0 h10 m208 0 h10 m20 0 h10 m0 0 h384 m-414 0 h20 m394 0 h20 m-434 0 q10 0 10 10 m414 0 q0 -10 10 -10 m-424 10 v12 m414 0 v-12 m-414 12 q0 10 10 10 m394 0 q10 0 10 -10 m-404 10 h10 m146 0 h10 m0 0 h10 m208 0 h10 m23 -32 h-3"/>
+         <polygon points="691 17 699 13 699 21"/>
+         <polygon points="691 17 683 13 683 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#operacion_relacional" title="operacion_relacional">operacion_relacional</a></div>
+               <div>         ::= <a href="#operacion_matematica_literal" title="operacion_matematica_literal">operacion_matematica_literal</a> ( <a href="#operador_relacional" title="operador_relacional">operador_relacional</a> <a href="#operacion_matematica_literal" title="operacion_matematica_literal">operacion_matematica_literal</a> )?</div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#operacion_not" title="operacion_not">operacion_not</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="operacion_matematica_literal">operacion_matematica_literal:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="197" height="81">
+         <polygon points="9 61 1 57 1 65"/>
+         <polygon points="17 61 9 57 9 65"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#tl" xlink:title="tl">
+            <rect x="51" y="47" width="28" height="32"/>
+            <rect x="49" y="45" width="28" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">tl</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operador_sr" xlink:title="operador_sr">
+            <rect x="51" y="3" width="98" height="32"/>
+            <rect x="49" y="1" width="98" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">operador_sr</text></a><path class="line" d="m17 61 h2 m20 0 h10 m28 0 h10 m0 0 h70 m-138 0 l20 0 m-1 0 q-9 0 -9 -10 l0 -24 q0 -10 10 -10 m118 44 l20 0 m-20 0 q10 0 10 -10 l0 -24 q0 -10 -10 -10 m-118 0 h10 m98 0 h10 m23 44 h-3"/>
+         <polygon points="187 61 195 57 195 65"/>
+         <polygon points="187 61 179 57 179 65"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#operacion_matematica_literal" title="operacion_matematica_literal">operacion_matematica_literal</a></div>
+               <div>         ::= <a href="#tl" title="tl">tl</a> ( <a href="#operador_sr" title="operador_sr">operador_sr</a> <a href="#tl" title="tl">tl</a> )*</div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#asignacion" title="asignacion">asignacion</a></li>
+            <li><a href="#operacion_relacional" title="operacion_relacional">operacion_relacional</a></li>
+            <li><a href="#variable" title="variable">variable</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="tl">tl:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="205" height="81">
+         <polygon points="9 61 1 57 1 65"/>
+         <polygon points="17 61 9 57 9 65"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#fl" xlink:title="fl">
+            <rect x="51" y="47" width="28" height="32"/>
+            <rect x="49" y="45" width="28" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">fl</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operador_md" xlink:title="operador_md">
+            <rect x="51" y="3" width="106" height="32"/>
+            <rect x="49" y="1" width="106" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">operador_md</text></a><path class="line" d="m17 61 h2 m20 0 h10 m28 0 h10 m0 0 h78 m-146 0 l20 0 m-1 0 q-9 0 -9 -10 l0 -24 q0 -10 10 -10 m126 44 l20 0 m-20 0 q10 0 10 -10 l0 -24 q0 -10 -10 -10 m-126 0 h10 m106 0 h10 m23 44 h-3"/>
+         <polygon points="195 61 203 57 203 65"/>
+         <polygon points="195 61 187 57 187 65"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#tl" title="tl">tl</a>       ::= <a href="#fl" title="fl">fl</a> ( <a href="#operador_md" title="operador_md">operador_md</a> <a href="#fl" title="fl">fl</a> )*</div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#operacion_matematica_literal" title="operacion_matematica_literal">operacion_matematica_literal</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="fl">fl:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="571" height="169">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PARENTESIS_ABIERTO" xlink:title="PARENTESIS_ABIERTO">
+            <rect x="51" y="3" width="160" height="32"/>
+            <rect x="49" y="1" width="160" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">PARENTESIS_ABIERTO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_lra" xlink:title="operacion_lra">
+            <rect x="231" y="3" width="106" height="32"/>
+            <rect x="229" y="1" width="106" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="239" y="21">operacion_lra</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PARENTESIS_CERRADO" xlink:title="PARENTESIS_CERRADO">
+            <rect x="357" y="3" width="166" height="32"/>
+            <rect x="355" y="1" width="166" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="365" y="21">PARENTESIS_CERRADO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_DECIMAL" xlink:title="NUMERO_DECIMAL">
+            <rect x="51" y="47" width="138" height="32"/>
+            <rect x="49" y="45" width="138" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">NUMERO_DECIMAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="51" y="91" width="132" height="32"/>
+            <rect x="49" y="89" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="109">NUMERO_ENTERO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ID" xlink:title="ID">
+            <rect x="51" y="135" width="34" height="32"/>
+            <rect x="49" y="133" width="34" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="153">ID</text></a><path class="line" d="m17 17 h2 m20 0 h10 m160 0 h10 m0 0 h10 m106 0 h10 m0 0 h10 m166 0 h10 m-512 0 h20 m492 0 h20 m-532 0 q10 0 10 10 m512 0 q0 -10 10 -10 m-522 10 v24 m512 0 v-24 m-512 24 q0 10 10 10 m492 0 q10 0 10 -10 m-502 10 h10 m138 0 h10 m0 0 h334 m-502 -10 v20 m512 0 v-20 m-512 20 v24 m512 0 v-24 m-512 24 q0 10 10 10 m492 0 q10 0 10 -10 m-502 10 h10 m132 0 h10 m0 0 h340 m-502 -10 v20 m512 0 v-20 m-512 20 v24 m512 0 v-24 m-512 24 q0 10 10 10 m492 0 q10 0 10 -10 m-502 10 h10 m34 0 h10 m0 0 h438 m23 -132 h-3"/>
+         <polygon points="561 17 569 13 569 21"/>
+         <polygon points="561 17 553 13 553 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#fl" title="fl">fl</a>       ::= <a href="#PARENTESIS_ABIERTO" title="PARENTESIS_ABIERTO">PARENTESIS_ABIERTO</a> <a href="#operacion_lra" title="operacion_lra">operacion_lra</a> <a href="#PARENTESIS_CERRADO" title="PARENTESIS_CERRADO">PARENTESIS_CERRADO</a></div>
+               <div>           | <a href="#NUMERO_DECIMAL" title="NUMERO_DECIMAL">NUMERO_DECIMAL</a></div>
+               <div>           | <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div>
+               <div>           | <a href="#ID" title="ID">ID</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#tl" title="tl">tl</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="operacion_matematica_numerica">operacion_matematica_numerica:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="197" height="81">
+         <polygon points="9 61 1 57 1 65"/>
+         <polygon points="17 61 9 57 9 65"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#tn" xlink:title="tn">
+            <rect x="51" y="47" width="32" height="32"/>
+            <rect x="49" y="45" width="32" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">tn</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operador_sr" xlink:title="operador_sr">
+            <rect x="51" y="3" width="98" height="32"/>
+            <rect x="49" y="1" width="98" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">operador_sr</text></a><path class="line" d="m17 61 h2 m20 0 h10 m32 0 h10 m0 0 h66 m-138 0 l20 0 m-1 0 q-9 0 -9 -10 l0 -24 q0 -10 10 -10 m118 44 l20 0 m-20 0 q10 0 10 -10 l0 -24 q0 -10 -10 -10 m-118 0 h10 m98 0 h10 m23 44 h-3"/>
+         <polygon points="187 61 195 57 195 65"/>
+         <polygon points="187 61 179 57 179 65"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#operacion_matematica_numerica" title="operacion_matematica_numerica">operacion_matematica_numerica</a></div>
+               <div>         ::= <a href="#tn" title="tn">tn</a> ( <a href="#operador_sr" title="operador_sr">operador_sr</a> <a href="#tn" title="tn">tn</a> )*</div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#fn" title="fn">fn</a></li>
+            <li><a href="#instruccion_letra_size_bloque" title="instruccion_letra_size_bloque">instruccion_letra_size_bloque</a></li>
+            <li><a href="#instruccion_letra_size_mientras" title="instruccion_letra_size_mientras">instruccion_letra_size_mientras</a></li>
+            <li><a href="#instruccion_letra_size_si" title="instruccion_letra_size_si">instruccion_letra_size_si</a></li>
+            <li><a href="#rgb" title="rgb">rgb</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="tn">tn:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="205" height="81">
+         <polygon points="9 61 1 57 1 65"/>
+         <polygon points="17 61 9 57 9 65"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#fn" xlink:title="fn">
+            <rect x="51" y="47" width="32" height="32"/>
+            <rect x="49" y="45" width="32" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">fn</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operador_md" xlink:title="operador_md">
+            <rect x="51" y="3" width="106" height="32"/>
+            <rect x="49" y="1" width="106" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">operador_md</text></a><path class="line" d="m17 61 h2 m20 0 h10 m32 0 h10 m0 0 h74 m-146 0 l20 0 m-1 0 q-9 0 -9 -10 l0 -24 q0 -10 10 -10 m126 44 l20 0 m-20 0 q10 0 10 -10 l0 -24 q0 -10 -10 -10 m-126 0 h10 m106 0 h10 m23 44 h-3"/>
+         <polygon points="195 61 203 57 203 65"/>
+         <polygon points="195 61 187 57 187 65"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#tn" title="tn">tn</a>       ::= <a href="#fn" title="fn">fn</a> ( <a href="#operador_md" title="operador_md">operador_md</a> <a href="#fn" title="fn">fn</a> )*</div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#operacion_matematica_numerica" title="operacion_matematica_numerica">operacion_matematica_numerica</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="fn">fn:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="697" height="125">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PARENTESIS_ABIERTO" xlink:title="PARENTESIS_ABIERTO">
+            <rect x="51" y="3" width="160" height="32"/>
+            <rect x="49" y="1" width="160" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">PARENTESIS_ABIERTO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_matematica_numerica" xlink:title="operacion_matematica_numerica">
+            <rect x="231" y="3" width="232" height="32"/>
+            <rect x="229" y="1" width="232" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="239" y="21">operacion_matematica_numerica</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PARENTESIS_CERRADO" xlink:title="PARENTESIS_CERRADO">
+            <rect x="483" y="3" width="166" height="32"/>
+            <rect x="481" y="1" width="166" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="491" y="21">PARENTESIS_CERRADO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_DECIMAL" xlink:title="NUMERO_DECIMAL">
+            <rect x="51" y="47" width="138" height="32"/>
+            <rect x="49" y="45" width="138" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">NUMERO_DECIMAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="51" y="91" width="132" height="32"/>
+            <rect x="49" y="89" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="109">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m20 0 h10 m160 0 h10 m0 0 h10 m232 0 h10 m0 0 h10 m166 0 h10 m-638 0 h20 m618 0 h20 m-658 0 q10 0 10 10 m638 0 q0 -10 10 -10 m-648 10 v24 m638 0 v-24 m-638 24 q0 10 10 10 m618 0 q10 0 10 -10 m-628 10 h10 m138 0 h10 m0 0 h460 m-628 -10 v20 m638 0 v-20 m-638 20 v24 m638 0 v-24 m-638 24 q0 10 10 10 m618 0 q10 0 10 -10 m-628 10 h10 m132 0 h10 m0 0 h466 m23 -88 h-3"/>
+         <polygon points="687 17 695 13 695 21"/>
+         <polygon points="687 17 679 13 679 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#fn" title="fn">fn</a>       ::= <a href="#PARENTESIS_ABIERTO" title="PARENTESIS_ABIERTO">PARENTESIS_ABIERTO</a> <a href="#operacion_matematica_numerica" title="operacion_matematica_numerica">operacion_matematica_numerica</a> <a href="#PARENTESIS_CERRADO" title="PARENTESIS_CERRADO">PARENTESIS_CERRADO</a></div>
+               <div>           | <a href="#NUMERO_DECIMAL" title="NUMERO_DECIMAL">NUMERO_DECIMAL</a></div>
+               <div>           | <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#tn" title="tn">tn</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="mientras">mientras:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="953" height="103">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MIENTRAS" xlink:title="MIENTRAS">
+            <rect x="31" y="3" width="84" height="32"/>
+            <rect x="29" y="1" width="84" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">MIENTRAS</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PARENTESIS_ABIERTO" xlink:title="PARENTESIS_ABIERTO">
+            <rect x="135" y="3" width="160" height="32"/>
+            <rect x="133" y="1" width="160" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="143" y="21">PARENTESIS_ABIERTO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_lra" xlink:title="operacion_lra">
+            <rect x="315" y="3" width="106" height="32"/>
+            <rect x="313" y="1" width="106" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="323" y="21">operacion_lra</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PARENTESIS_CERRADO" xlink:title="PARENTESIS_CERRADO">
+            <rect x="441" y="3" width="166" height="32"/>
+            <rect x="439" y="1" width="166" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="449" y="21">PARENTESIS_CERRADO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#HACER" xlink:title="HACER">
+            <rect x="627" y="3" width="62" height="32"/>
+            <rect x="625" y="1" width="62" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="635" y="21">HACER</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#contenido_bloque_opt" xlink:title="contenido_bloque_opt">
+            <rect x="709" y="3" width="162" height="32"/>
+            <rect x="707" y="1" width="162" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="717" y="21">contenido_bloque_opt</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#FIN" xlink:title="FIN">
+            <rect x="891" y="3" width="40" height="32"/>
+            <rect x="889" y="1" width="40" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="899" y="21">FIN</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MIENTRAS" xlink:title="MIENTRAS">
+            <rect x="841" y="69" width="84" height="32"/>
+            <rect x="839" y="67" width="84" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="849" y="87">MIENTRAS</text></a><path class="line" d="m17 17 h2 m0 0 h10 m84 0 h10 m0 0 h10 m160 0 h10 m0 0 h10 m106 0 h10 m0 0 h10 m166 0 h10 m0 0 h10 m62 0 h10 m0 0 h10 m162 0 h10 m0 0 h10 m40 0 h10 m2 0 l2 0 m2 0 l2 0 m2 0 l2 0 m-134 66 l2 0 m2 0 l2 0 m2 0 l2 0 m2 0 h10 m84 0 h10 m3 0 h-3"/>
+         <polygon points="943 83 951 79 951 87"/>
+         <polygon points="943 83 935 79 935 87"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#mientras" title="mientras">mientras</a> ::= <a href="#MIENTRAS" title="MIENTRAS">MIENTRAS</a> <a href="#PARENTESIS_ABIERTO" title="PARENTESIS_ABIERTO">PARENTESIS_ABIERTO</a> <a href="#operacion_lra" title="operacion_lra">operacion_lra</a> <a href="#PARENTESIS_CERRADO" title="PARENTESIS_CERRADO">PARENTESIS_CERRADO</a> <a href="#HACER" title="HACER">HACER</a> <a href="#contenido_bloque_opt" title="contenido_bloque_opt">contenido_bloque_opt</a> <a href="#FIN" title="FIN">FIN</a> <a href="#MIENTRAS" title="MIENTRAS">MIENTRAS</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_codigo" title="instruccion_codigo">instruccion_codigo</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="mostrar">mostrar:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="231" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MOSTRAR" xlink:title="MOSTRAR">
+            <rect x="31" y="3" width="78" height="32"/>
+            <rect x="29" y="1" width="78" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">MOSTRAR</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#mensaje" xlink:title="mensaje">
+            <rect x="129" y="3" width="74" height="32"/>
+            <rect x="127" y="1" width="74" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="137" y="21">mensaje</text></a><path class="line" d="m17 17 h2 m0 0 h10 m78 0 h10 m0 0 h10 m74 0 h10 m3 0 h-3"/>
+         <polygon points="221 17 229 13 229 21"/>
+         <polygon points="221 17 213 13 213 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#mostrar" title="mostrar">mostrar</a>  ::= <a href="#MOSTRAR" title="MOSTRAR">MOSTRAR</a> <a href="#mensaje" title="mensaje">mensaje</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_simple" title="instruccion_simple">instruccion_simple</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="mensaje">mensaje:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="159" height="81">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#TEXTO" xlink:title="TEXTO">
+            <rect x="51" y="3" width="60" height="32"/>
+            <rect x="49" y="1" width="60" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">TEXTO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ID" xlink:title="ID">
+            <rect x="51" y="47" width="34" height="32"/>
+            <rect x="49" y="45" width="34" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">ID</text></a><path class="line" d="m17 17 h2 m20 0 h10 m60 0 h10 m-100 0 h20 m80 0 h20 m-120 0 q10 0 10 10 m100 0 q0 -10 10 -10 m-110 10 v24 m100 0 v-24 m-100 24 q0 10 10 10 m80 0 q10 0 10 -10 m-90 10 h10 m34 0 h10 m0 0 h26 m23 -44 h-3"/>
+         <polygon points="149 17 157 13 157 21"/>
+         <polygon points="149 17 141 13 141 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#mensaje" title="mensaje">mensaje</a>  ::= <a href="#TEXTO" title="TEXTO">TEXTO</a></div>
+               <div>           | <a href="#ID" title="ID">ID</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#mostrar" title="mostrar">mostrar</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="leer">leer:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="163" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#LEER" xlink:title="LEER">
+            <rect x="31" y="3" width="50" height="32"/>
+            <rect x="29" y="1" width="50" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">LEER</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ID" xlink:title="ID">
+            <rect x="101" y="3" width="34" height="32"/>
+            <rect x="99" y="1" width="34" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="109" y="21">ID</text></a><path class="line" d="m17 17 h2 m0 0 h10 m50 0 h10 m0 0 h10 m34 0 h10 m3 0 h-3"/>
+         <polygon points="153 17 161 13 161 21"/>
+         <polygon points="153 17 145 13 145 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#leer" title="leer">leer</a>     ::= <a href="#LEER" title="LEER">LEER</a> <a href="#ID" title="ID">ID</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_simple" title="instruccion_simple">instruccion_simple</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_configuracion">instruccion_configuracion:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="331" height="697">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_default" xlink:title="instruccion_default">
+            <rect x="51" y="3" width="140" height="32"/>
+            <rect x="49" y="1" width="140" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">instruccion_default</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_color_texto_si" xlink:title="instruccion_color_texto_si">
+            <rect x="51" y="47" width="186" height="32"/>
+            <rect x="49" y="45" width="186" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">instruccion_color_texto_si</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_color_si" xlink:title="instruccion_color_si">
+            <rect x="51" y="91" width="144" height="32"/>
+            <rect x="49" y="89" width="144" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="109">instruccion_color_si</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_figura_si" xlink:title="instruccion_figura_si">
+            <rect x="51" y="135" width="150" height="32"/>
+            <rect x="49" y="133" width="150" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="153">instruccion_figura_si</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_letra_si" xlink:title="instruccion_letra_si">
+            <rect x="51" y="179" width="144" height="32"/>
+            <rect x="49" y="177" width="144" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="197">instruccion_letra_si</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_letra_size_si" xlink:title="instruccion_letra_size_si">
+            <rect x="51" y="223" width="176" height="32"/>
+            <rect x="49" y="221" width="176" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="241">instruccion_letra_size_si</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_color_texto_mientras" xlink:title="instruccion_color_texto_mientras">
+            <rect x="51" y="267" width="232" height="32"/>
+            <rect x="49" y="265" width="232" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="285">instruccion_color_texto_mientras</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_color_mientras" xlink:title="instruccion_color_mientras">
+            <rect x="51" y="311" width="190" height="32"/>
+            <rect x="49" y="309" width="190" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="329">instruccion_color_mientras</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_figura_mientras" xlink:title="instruccion_figura_mientras">
+            <rect x="51" y="355" width="196" height="32"/>
+            <rect x="49" y="353" width="196" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="373">instruccion_figura_mientras</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_letra_mientras" xlink:title="instruccion_letra_mientras">
+            <rect x="51" y="399" width="190" height="32"/>
+            <rect x="49" y="397" width="190" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="417">instruccion_letra_mientras</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_letra_size_mientras" xlink:title="instruccion_letra_size_mientras">
+            <rect x="51" y="443" width="222" height="32"/>
+            <rect x="49" y="441" width="222" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="461">instruccion_letra_size_mientras</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_color_texto_bloque" xlink:title="instruccion_color_texto_bloque">
+            <rect x="51" y="487" width="218" height="32"/>
+            <rect x="49" y="485" width="218" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="505">instruccion_color_texto_bloque</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_color_bloque" xlink:title="instruccion_color_bloque">
+            <rect x="51" y="531" width="178" height="32"/>
+            <rect x="49" y="529" width="178" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="549">instruccion_color_bloque</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_figura_bloque" xlink:title="instruccion_figura_bloque">
+            <rect x="51" y="575" width="184" height="32"/>
+            <rect x="49" y="573" width="184" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="593">instruccion_figura_bloque</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_letra_bloque" xlink:title="instruccion_letra_bloque">
+            <rect x="51" y="619" width="176" height="32"/>
+            <rect x="49" y="617" width="176" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="637">instruccion_letra_bloque</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instruccion_letra_size_bloque" xlink:title="instruccion_letra_size_bloque">
+            <rect x="51" y="663" width="210" height="32"/>
+            <rect x="49" y="661" width="210" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="681">instruccion_letra_size_bloque</text></a><path class="line" d="m17 17 h2 m20 0 h10 m140 0 h10 m0 0 h92 m-272 0 h20 m252 0 h20 m-292 0 q10 0 10 10 m272 0 q0 -10 10 -10 m-282 10 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m186 0 h10 m0 0 h46 m-262 -10 v20 m272 0 v-20 m-272 20 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m144 0 h10 m0 0 h88 m-262 -10 v20 m272 0 v-20 m-272 20 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m150 0 h10 m0 0 h82 m-262 -10 v20 m272 0 v-20 m-272 20 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m144 0 h10 m0 0 h88 m-262 -10 v20 m272 0 v-20 m-272 20 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m176 0 h10 m0 0 h56 m-262 -10 v20 m272 0 v-20 m-272 20 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m232 0 h10 m-262 -10 v20 m272 0 v-20 m-272 20 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m190 0 h10 m0 0 h42 m-262 -10 v20 m272 0 v-20 m-272 20 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m196 0 h10 m0 0 h36 m-262 -10 v20 m272 0 v-20 m-272 20 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m190 0 h10 m0 0 h42 m-262 -10 v20 m272 0 v-20 m-272 20 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m222 0 h10 m0 0 h10 m-262 -10 v20 m272 0 v-20 m-272 20 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m218 0 h10 m0 0 h14 m-262 -10 v20 m272 0 v-20 m-272 20 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m178 0 h10 m0 0 h54 m-262 -10 v20 m272 0 v-20 m-272 20 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m184 0 h10 m0 0 h48 m-262 -10 v20 m272 0 v-20 m-272 20 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m176 0 h10 m0 0 h56 m-262 -10 v20 m272 0 v-20 m-272 20 v24 m272 0 v-24 m-272 24 q0 10 10 10 m252 0 q10 0 10 -10 m-262 10 h10 m210 0 h10 m0 0 h22 m23 -660 h-3"/>
+         <polygon points="321 17 329 13 329 21"/>
+         <polygon points="321 17 313 13 313 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></div>
+               <div>         ::= <a href="#instruccion_default" title="instruccion_default">instruccion_default</a></div>
+               <div>           | <a href="#instruccion_color_texto_si" title="instruccion_color_texto_si">instruccion_color_texto_si</a></div>
+               <div>           | <a href="#instruccion_color_si" title="instruccion_color_si">instruccion_color_si</a></div>
+               <div>           | <a href="#instruccion_figura_si" title="instruccion_figura_si">instruccion_figura_si</a></div>
+               <div>           | <a href="#instruccion_letra_si" title="instruccion_letra_si">instruccion_letra_si</a></div>
+               <div>           | <a href="#instruccion_letra_size_si" title="instruccion_letra_size_si">instruccion_letra_size_si</a></div>
+               <div>           | <a href="#instruccion_color_texto_mientras" title="instruccion_color_texto_mientras">instruccion_color_texto_mientras</a></div>
+               <div>           | <a href="#instruccion_color_mientras" title="instruccion_color_mientras">instruccion_color_mientras</a></div>
+               <div>           | <a href="#instruccion_figura_mientras" title="instruccion_figura_mientras">instruccion_figura_mientras</a></div>
+               <div>           | <a href="#instruccion_letra_mientras" title="instruccion_letra_mientras">instruccion_letra_mientras</a></div>
+               <div>           | <a href="#instruccion_letra_size_mientras" title="instruccion_letra_size_mientras">instruccion_letra_size_mientras</a></div>
+               <div>           | <a href="#instruccion_color_texto_bloque" title="instruccion_color_texto_bloque">instruccion_color_texto_bloque</a></div>
+               <div>           | <a href="#instruccion_color_bloque" title="instruccion_color_bloque">instruccion_color_bloque</a></div>
+               <div>           | <a href="#instruccion_figura_bloque" title="instruccion_figura_bloque">instruccion_figura_bloque</a></div>
+               <div>           | <a href="#instruccion_letra_bloque" title="instruccion_letra_bloque">instruccion_letra_bloque</a></div>
+               <div>           | <a href="#instruccion_letra_size_bloque" title="instruccion_letra_size_bloque">instruccion_letra_size_bloque</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#fuente_entrada" title="fuente_entrada">fuente_entrada</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_default">instruccion_default:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="363" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#DEFAULT" xlink:title="DEFAULT">
+            <rect x="31" y="3" width="74" height="32"/>
+            <rect x="29" y="1" width="74" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">DEFAULT</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="125" y="3" width="58" height="32"/>
+            <rect x="123" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="133" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="203" y="3" width="132" height="32"/>
+            <rect x="201" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="211" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m74 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="353 17 361 13 361 21"/>
+         <polygon points="353 17 345 13 345 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_default" title="instruccion_default">instruccion_default</a></div>
+               <div>         ::= <a href="#DEFAULT" title="DEFAULT">DEFAULT</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_color_texto_si">instruccion_color_texto_si:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="559" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#COLOR_TEXTO_SI" xlink:title="COLOR_TEXTO_SI">
+            <rect x="31" y="3" width="132" height="32"/>
+            <rect x="29" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">COLOR_TEXTO_SI</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="183" y="3" width="58" height="32"/>
+            <rect x="181" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="191" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#color" xlink:title="color">
+            <rect x="261" y="3" width="50" height="32"/>
+            <rect x="259" y="1" width="50" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="269" y="21">color</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="331" y="3" width="48" height="32"/>
+            <rect x="329" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="339" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="399" y="3" width="132" height="32"/>
+            <rect x="397" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="407" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m132 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m50 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="549 17 557 13 557 21"/>
+         <polygon points="549 17 541 13 541 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_color_texto_si" title="instruccion_color_texto_si">instruccion_color_texto_si</a></div>
+               <div>         ::= <a href="#COLOR_TEXTO_SI" title="COLOR_TEXTO_SI">COLOR_TEXTO_SI</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#color" title="color">color</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_color_si">instruccion_color_si:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="511" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#COLOR_SI" xlink:title="COLOR_SI">
+            <rect x="31" y="3" width="84" height="32"/>
+            <rect x="29" y="1" width="84" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">COLOR_SI</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="135" y="3" width="58" height="32"/>
+            <rect x="133" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="143" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#color" xlink:title="color">
+            <rect x="213" y="3" width="50" height="32"/>
+            <rect x="211" y="1" width="50" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="221" y="21">color</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="283" y="3" width="48" height="32"/>
+            <rect x="281" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="291" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="351" y="3" width="132" height="32"/>
+            <rect x="349" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="359" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m84 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m50 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="501 17 509 13 509 21"/>
+         <polygon points="501 17 493 13 493 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_color_si" title="instruccion_color_si">instruccion_color_si</a></div>
+               <div>         ::= <a href="#COLOR_SI" title="COLOR_SI">COLOR_SI</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#color" title="color">color</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_figura_si">instruccion_figura_si:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="577" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#FIGURA_SI" xlink:title="FIGURA_SI">
+            <rect x="31" y="3" width="88" height="32"/>
+            <rect x="29" y="1" width="88" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">FIGURA_SI</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="139" y="3" width="58" height="32"/>
+            <rect x="137" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="147" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#nombre_figura" xlink:title="nombre_figura">
+            <rect x="217" y="3" width="112" height="32"/>
+            <rect x="215" y="1" width="112" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="225" y="21">nombre_figura</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="349" y="3" width="48" height="32"/>
+            <rect x="347" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="357" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="417" y="3" width="132" height="32"/>
+            <rect x="415" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="425" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m88 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m112 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="567 17 575 13 575 21"/>
+         <polygon points="567 17 559 13 559 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_figura_si" title="instruccion_figura_si">instruccion_figura_si</a></div>
+               <div>         ::= <a href="#FIGURA_SI" title="FIGURA_SI">FIGURA_SI</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#nombre_figura" title="nombre_figura">nombre_figura</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_letra_si">instruccion_letra_si:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="563" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#LETRA_SI" xlink:title="LETRA_SI">
+            <rect x="31" y="3" width="80" height="32"/>
+            <rect x="29" y="1" width="80" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">LETRA_SI</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="131" y="3" width="58" height="32"/>
+            <rect x="129" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="139" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#nombre_letra" xlink:title="nombre_letra">
+            <rect x="209" y="3" width="106" height="32"/>
+            <rect x="207" y="1" width="106" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="217" y="21">nombre_letra</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="335" y="3" width="48" height="32"/>
+            <rect x="333" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="343" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="403" y="3" width="132" height="32"/>
+            <rect x="401" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="411" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m80 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m106 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="553 17 561 13 561 21"/>
+         <polygon points="553 17 545 13 545 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_letra_si" title="instruccion_letra_si">instruccion_letra_si</a></div>
+               <div>         ::= <a href="#LETRA_SI" title="LETRA_SI">LETRA_SI</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#nombre_letra" title="nombre_letra">nombre_letra</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_letra_size_si">instruccion_letra_size_si:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="725" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#LETRA_SIZE_SI" xlink:title="LETRA_SIZE_SI">
+            <rect x="31" y="3" width="116" height="32"/>
+            <rect x="29" y="1" width="116" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">LETRA_SIZE_SI</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="167" y="3" width="58" height="32"/>
+            <rect x="165" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="175" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_matematica_numerica" xlink:title="operacion_matematica_numerica">
+            <rect x="245" y="3" width="232" height="32"/>
+            <rect x="243" y="1" width="232" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="253" y="21">operacion_matematica_numerica</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="497" y="3" width="48" height="32"/>
+            <rect x="495" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="505" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="565" y="3" width="132" height="32"/>
+            <rect x="563" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="573" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m116 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m232 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="715 17 723 13 723 21"/>
+         <polygon points="715 17 707 13 707 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_letra_size_si" title="instruccion_letra_size_si">instruccion_letra_size_si</a></div>
+               <div>         ::= <a href="#LETRA_SIZE_SI" title="LETRA_SIZE_SI">LETRA_SIZE_SI</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#operacion_matematica_numerica" title="operacion_matematica_numerica">operacion_matematica_numerica</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_color_texto_mientras">instruccion_color_texto_mientras:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="609" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#COLOR_TEXTO_MIENTRAS" xlink:title="COLOR_TEXTO_MIENTRAS">
+            <rect x="31" y="3" width="182" height="32"/>
+            <rect x="29" y="1" width="182" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">COLOR_TEXTO_MIENTRAS</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="233" y="3" width="58" height="32"/>
+            <rect x="231" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="241" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#color" xlink:title="color">
+            <rect x="311" y="3" width="50" height="32"/>
+            <rect x="309" y="1" width="50" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="319" y="21">color</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="381" y="3" width="48" height="32"/>
+            <rect x="379" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="389" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="449" y="3" width="132" height="32"/>
+            <rect x="447" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="457" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m182 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m50 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="599 17 607 13 607 21"/>
+         <polygon points="599 17 591 13 591 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_color_texto_mientras" title="instruccion_color_texto_mientras">instruccion_color_texto_mientras</a></div>
+               <div>         ::= <a href="#COLOR_TEXTO_MIENTRAS" title="COLOR_TEXTO_MIENTRAS">COLOR_TEXTO_MIENTRAS</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#color" title="color">color</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_color_mientras">instruccion_color_mientras:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="561" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#COLOR_MIENTRAS" xlink:title="COLOR_MIENTRAS">
+            <rect x="31" y="3" width="134" height="32"/>
+            <rect x="29" y="1" width="134" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">COLOR_MIENTRAS</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="185" y="3" width="58" height="32"/>
+            <rect x="183" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="193" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#color" xlink:title="color">
+            <rect x="263" y="3" width="50" height="32"/>
+            <rect x="261" y="1" width="50" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="271" y="21">color</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="333" y="3" width="48" height="32"/>
+            <rect x="331" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="341" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="401" y="3" width="132" height="32"/>
+            <rect x="399" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="409" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m134 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m50 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="551 17 559 13 559 21"/>
+         <polygon points="551 17 543 13 543 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_color_mientras" title="instruccion_color_mientras">instruccion_color_mientras</a></div>
+               <div>         ::= <a href="#COLOR_MIENTRAS" title="COLOR_MIENTRAS">COLOR_MIENTRAS</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#color" title="color">color</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_figura_mientras">instruccion_figura_mientras:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="627" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#FIGURA_MIENTRAS" xlink:title="FIGURA_MIENTRAS">
+            <rect x="31" y="3" width="138" height="32"/>
+            <rect x="29" y="1" width="138" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">FIGURA_MIENTRAS</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="189" y="3" width="58" height="32"/>
+            <rect x="187" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="197" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#nombre_figura" xlink:title="nombre_figura">
+            <rect x="267" y="3" width="112" height="32"/>
+            <rect x="265" y="1" width="112" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="275" y="21">nombre_figura</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="399" y="3" width="48" height="32"/>
+            <rect x="397" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="407" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="467" y="3" width="132" height="32"/>
+            <rect x="465" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="475" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m138 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m112 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="617 17 625 13 625 21"/>
+         <polygon points="617 17 609 13 609 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_figura_mientras" title="instruccion_figura_mientras">instruccion_figura_mientras</a></div>
+               <div>         ::= <a href="#FIGURA_MIENTRAS" title="FIGURA_MIENTRAS">FIGURA_MIENTRAS</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#nombre_figura" title="nombre_figura">nombre_figura</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_letra_mientras">instruccion_letra_mientras:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="613" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#LETRA_MIENTRAS" xlink:title="LETRA_MIENTRAS">
+            <rect x="31" y="3" width="130" height="32"/>
+            <rect x="29" y="1" width="130" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">LETRA_MIENTRAS</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="181" y="3" width="58" height="32"/>
+            <rect x="179" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="189" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#nombre_letra" xlink:title="nombre_letra">
+            <rect x="259" y="3" width="106" height="32"/>
+            <rect x="257" y="1" width="106" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="267" y="21">nombre_letra</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="385" y="3" width="48" height="32"/>
+            <rect x="383" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="393" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="453" y="3" width="132" height="32"/>
+            <rect x="451" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="461" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m130 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m106 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="603 17 611 13 611 21"/>
+         <polygon points="603 17 595 13 595 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_letra_mientras" title="instruccion_letra_mientras">instruccion_letra_mientras</a></div>
+               <div>         ::= <a href="#LETRA_MIENTRAS" title="LETRA_MIENTRAS">LETRA_MIENTRAS</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#nombre_letra" title="nombre_letra">nombre_letra</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_letra_size_mientras">instruccion_letra_size_mientras:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="775" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#LETRA_SIZE_MIENTRAS" xlink:title="LETRA_SIZE_MIENTRAS">
+            <rect x="31" y="3" width="166" height="32"/>
+            <rect x="29" y="1" width="166" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">LETRA_SIZE_MIENTRAS</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="217" y="3" width="58" height="32"/>
+            <rect x="215" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="225" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_matematica_numerica" xlink:title="operacion_matematica_numerica">
+            <rect x="295" y="3" width="232" height="32"/>
+            <rect x="293" y="1" width="232" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="303" y="21">operacion_matematica_numerica</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="547" y="3" width="48" height="32"/>
+            <rect x="545" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="555" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="615" y="3" width="132" height="32"/>
+            <rect x="613" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="623" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m166 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m232 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="765 17 773 13 773 21"/>
+         <polygon points="765 17 757 13 757 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_letra_size_mientras" title="instruccion_letra_size_mientras">instruccion_letra_size_mientras</a></div>
+               <div>         ::= <a href="#LETRA_SIZE_MIENTRAS" title="LETRA_SIZE_MIENTRAS">LETRA_SIZE_MIENTRAS</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#operacion_matematica_numerica" title="operacion_matematica_numerica">operacion_matematica_numerica</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_color_texto_bloque">instruccion_color_texto_bloque:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="597" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#COLOR_TEXTO_BLOQUE" xlink:title="COLOR_TEXTO_BLOQUE">
+            <rect x="31" y="3" width="170" height="32"/>
+            <rect x="29" y="1" width="170" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">COLOR_TEXTO_BLOQUE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="221" y="3" width="58" height="32"/>
+            <rect x="219" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="229" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#color" xlink:title="color">
+            <rect x="299" y="3" width="50" height="32"/>
+            <rect x="297" y="1" width="50" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="307" y="21">color</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="369" y="3" width="48" height="32"/>
+            <rect x="367" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="377" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="437" y="3" width="132" height="32"/>
+            <rect x="435" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="445" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m170 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m50 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="587 17 595 13 595 21"/>
+         <polygon points="587 17 579 13 579 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_color_texto_bloque" title="instruccion_color_texto_bloque">instruccion_color_texto_bloque</a></div>
+               <div>         ::= <a href="#COLOR_TEXTO_BLOQUE" title="COLOR_TEXTO_BLOQUE">COLOR_TEXTO_BLOQUE</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#color" title="color">color</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_color_bloque">instruccion_color_bloque:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="549" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#COLOR_BLOQUE" xlink:title="COLOR_BLOQUE">
+            <rect x="31" y="3" width="122" height="32"/>
+            <rect x="29" y="1" width="122" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">COLOR_BLOQUE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="173" y="3" width="58" height="32"/>
+            <rect x="171" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="181" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#color" xlink:title="color">
+            <rect x="251" y="3" width="50" height="32"/>
+            <rect x="249" y="1" width="50" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="259" y="21">color</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="321" y="3" width="48" height="32"/>
+            <rect x="319" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="329" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="389" y="3" width="132" height="32"/>
+            <rect x="387" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="397" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m122 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m50 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="539 17 547 13 547 21"/>
+         <polygon points="539 17 531 13 531 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_color_bloque" title="instruccion_color_bloque">instruccion_color_bloque</a></div>
+               <div>         ::= <a href="#COLOR_BLOQUE" title="COLOR_BLOQUE">COLOR_BLOQUE</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#color" title="color">color</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_figura_bloque">instruccion_figura_bloque:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="615" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#FIGURA_BLOQUE" xlink:title="FIGURA_BLOQUE">
+            <rect x="31" y="3" width="126" height="32"/>
+            <rect x="29" y="1" width="126" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">FIGURA_BLOQUE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="177" y="3" width="58" height="32"/>
+            <rect x="175" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="185" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#nombre_figura" xlink:title="nombre_figura">
+            <rect x="255" y="3" width="112" height="32"/>
+            <rect x="253" y="1" width="112" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="263" y="21">nombre_figura</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="387" y="3" width="48" height="32"/>
+            <rect x="385" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="395" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="455" y="3" width="132" height="32"/>
+            <rect x="453" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="463" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m126 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m112 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="605 17 613 13 613 21"/>
+         <polygon points="605 17 597 13 597 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_figura_bloque" title="instruccion_figura_bloque">instruccion_figura_bloque</a></div>
+               <div>         ::= <a href="#FIGURA_BLOQUE" title="FIGURA_BLOQUE">FIGURA_BLOQUE</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#nombre_figura" title="nombre_figura">nombre_figura</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_letra_bloque">instruccion_letra_bloque:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="601" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#LETRA_BLOQUE" xlink:title="LETRA_BLOQUE">
+            <rect x="31" y="3" width="118" height="32"/>
+            <rect x="29" y="1" width="118" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">LETRA_BLOQUE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="169" y="3" width="58" height="32"/>
+            <rect x="167" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="177" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#nombre_letra" xlink:title="nombre_letra">
+            <rect x="247" y="3" width="106" height="32"/>
+            <rect x="245" y="1" width="106" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="255" y="21">nombre_letra</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="373" y="3" width="48" height="32"/>
+            <rect x="371" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="381" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="441" y="3" width="132" height="32"/>
+            <rect x="439" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="449" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m118 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m106 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="591 17 599 13 599 21"/>
+         <polygon points="591 17 583 13 583 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_letra_bloque" title="instruccion_letra_bloque">instruccion_letra_bloque</a></div>
+               <div>         ::= <a href="#LETRA_BLOQUE" title="LETRA_BLOQUE">LETRA_BLOQUE</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#nombre_letra" title="nombre_letra">nombre_letra</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="instruccion_letra_size_bloque">instruccion_letra_size_bloque:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="763" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#LETRA_SIZE_BLOQUE" xlink:title="LETRA_SIZE_BLOQUE">
+            <rect x="31" y="3" width="154" height="32"/>
+            <rect x="29" y="1" width="154" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">LETRA_SIZE_BLOQUE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUAL" xlink:title="IGUAL">
+            <rect x="205" y="3" width="58" height="32"/>
+            <rect x="203" y="1" width="58" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="213" y="21">IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_matematica_numerica" xlink:title="operacion_matematica_numerica">
+            <rect x="283" y="3" width="232" height="32"/>
+            <rect x="281" y="1" width="232" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="291" y="21">operacion_matematica_numerica</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PIPE" xlink:title="PIPE">
+            <rect x="535" y="3" width="48" height="32"/>
+            <rect x="533" y="1" width="48" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="543" y="21">PIPE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#NUMERO_ENTERO" xlink:title="NUMERO_ENTERO">
+            <rect x="603" y="3" width="132" height="32"/>
+            <rect x="601" y="1" width="132" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="611" y="21">NUMERO_ENTERO</text></a><path class="line" d="m17 17 h2 m0 0 h10 m154 0 h10 m0 0 h10 m58 0 h10 m0 0 h10 m232 0 h10 m0 0 h10 m48 0 h10 m0 0 h10 m132 0 h10 m3 0 h-3"/>
+         <polygon points="753 17 761 13 761 21"/>
+         <polygon points="753 17 745 13 745 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#instruccion_letra_size_bloque" title="instruccion_letra_size_bloque">instruccion_letra_size_bloque</a></div>
+               <div>         ::= <a href="#LETRA_SIZE_BLOQUE" title="LETRA_SIZE_BLOQUE">LETRA_SIZE_BLOQUE</a> <a href="#IGUAL" title="IGUAL">IGUAL</a> <a href="#operacion_matematica_numerica" title="operacion_matematica_numerica">operacion_matematica_numerica</a> <a href="#PIPE" title="PIPE">PIPE</a> <a href="#NUMERO_ENTERO" title="NUMERO_ENTERO">NUMERO_ENTERO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_configuracion" title="instruccion_configuracion">instruccion_configuracion</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="color">color:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="209" height="81">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#rgb" xlink:title="rgb">
+            <rect x="51" y="3" width="40" height="32"/>
+            <rect x="49" y="1" width="40" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">rgb</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#HEXADECIMAL" xlink:title="HEXADECIMAL">
+            <rect x="51" y="47" width="110" height="32"/>
+            <rect x="49" y="45" width="110" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">HEXADECIMAL</text></a><path class="line" d="m17 17 h2 m20 0 h10 m40 0 h10 m0 0 h70 m-150 0 h20 m130 0 h20 m-170 0 q10 0 10 10 m150 0 q0 -10 10 -10 m-160 10 v24 m150 0 v-24 m-150 24 q0 10 10 10 m130 0 q10 0 10 -10 m-140 10 h10 m110 0 h10 m23 -44 h-3"/>
+         <polygon points="199 17 207 13 207 21"/>
+         <polygon points="199 17 191 13 191 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#color" title="color">color</a>    ::= <a href="#rgb" title="rgb">rgb</a></div>
+               <div>           | <a href="#HEXADECIMAL" title="HEXADECIMAL">HEXADECIMAL</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_color_bloque" title="instruccion_color_bloque">instruccion_color_bloque</a></li>
+            <li><a href="#instruccion_color_mientras" title="instruccion_color_mientras">instruccion_color_mientras</a></li>
+            <li><a href="#instruccion_color_si" title="instruccion_color_si">instruccion_color_si</a></li>
+            <li><a href="#instruccion_color_texto_bloque" title="instruccion_color_texto_bloque">instruccion_color_texto_bloque</a></li>
+            <li><a href="#instruccion_color_texto_mientras" title="instruccion_color_texto_mientras">instruccion_color_texto_mientras</a></li>
+            <li><a href="#instruccion_color_texto_si" title="instruccion_color_texto_si">instruccion_color_texto_si</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="rgb">rgb:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="947" height="37">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_matematica_numerica" xlink:title="operacion_matematica_numerica">
+            <rect x="31" y="3" width="232" height="32"/>
+            <rect x="29" y="1" width="232" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="39" y="21">operacion_matematica_numerica</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#COMA" xlink:title="COMA">
+            <rect x="283" y="3" width="56" height="32"/>
+            <rect x="281" y="1" width="56" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="291" y="21">COMA</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_matematica_numerica" xlink:title="operacion_matematica_numerica">
+            <rect x="359" y="3" width="232" height="32"/>
+            <rect x="357" y="1" width="232" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="367" y="21">operacion_matematica_numerica</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#COMA" xlink:title="COMA">
+            <rect x="611" y="3" width="56" height="32"/>
+            <rect x="609" y="1" width="56" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="619" y="21">COMA</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#operacion_matematica_numerica" xlink:title="operacion_matematica_numerica">
+            <rect x="687" y="3" width="232" height="32"/>
+            <rect x="685" y="1" width="232" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="695" y="21">operacion_matematica_numerica</text></a><path class="line" d="m17 17 h2 m0 0 h10 m232 0 h10 m0 0 h10 m56 0 h10 m0 0 h10 m232 0 h10 m0 0 h10 m56 0 h10 m0 0 h10 m232 0 h10 m3 0 h-3"/>
+         <polygon points="937 17 945 13 945 21"/>
+         <polygon points="937 17 929 13 929 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#rgb" title="rgb">rgb</a>      ::= <a href="#operacion_matematica_numerica" title="operacion_matematica_numerica">operacion_matematica_numerica</a> <a href="#COMA" title="COMA">COMA</a> <a href="#operacion_matematica_numerica" title="operacion_matematica_numerica">operacion_matematica_numerica</a> <a href="#COMA" title="COMA">COMA</a> <a href="#operacion_matematica_numerica" title="operacion_matematica_numerica">operacion_matematica_numerica</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#color" title="color">color</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="operador_relacional">operador_relacional:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="209" height="257">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IGUALDAD" xlink:title="IGUALDAD">
+            <rect x="51" y="3" width="84" height="32"/>
+            <rect x="49" y="1" width="84" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">IGUALDAD</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#DIFERENTE" xlink:title="DIFERENTE">
+            <rect x="51" y="47" width="90" height="32"/>
+            <rect x="49" y="45" width="90" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">DIFERENTE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MAYOR" xlink:title="MAYOR">
+            <rect x="51" y="91" width="62" height="32"/>
+            <rect x="49" y="89" width="62" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="109">MAYOR</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MENOR" xlink:title="MENOR">
+            <rect x="51" y="135" width="64" height="32"/>
+            <rect x="49" y="133" width="64" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="153">MENOR</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MAYOR_IGUAL" xlink:title="MAYOR_IGUAL">
+            <rect x="51" y="179" width="110" height="32"/>
+            <rect x="49" y="177" width="110" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="197">MAYOR_IGUAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MENOR_IGUAL" xlink:title="MENOR_IGUAL">
+            <rect x="51" y="223" width="110" height="32"/>
+            <rect x="49" y="221" width="110" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="241">MENOR_IGUAL</text></a><path class="line" d="m17 17 h2 m20 0 h10 m84 0 h10 m0 0 h26 m-150 0 h20 m130 0 h20 m-170 0 q10 0 10 10 m150 0 q0 -10 10 -10 m-160 10 v24 m150 0 v-24 m-150 24 q0 10 10 10 m130 0 q10 0 10 -10 m-140 10 h10 m90 0 h10 m0 0 h20 m-140 -10 v20 m150 0 v-20 m-150 20 v24 m150 0 v-24 m-150 24 q0 10 10 10 m130 0 q10 0 10 -10 m-140 10 h10 m62 0 h10 m0 0 h48 m-140 -10 v20 m150 0 v-20 m-150 20 v24 m150 0 v-24 m-150 24 q0 10 10 10 m130 0 q10 0 10 -10 m-140 10 h10 m64 0 h10 m0 0 h46 m-140 -10 v20 m150 0 v-20 m-150 20 v24 m150 0 v-24 m-150 24 q0 10 10 10 m130 0 q10 0 10 -10 m-140 10 h10 m110 0 h10 m-140 -10 v20 m150 0 v-20 m-150 20 v24 m150 0 v-24 m-150 24 q0 10 10 10 m130 0 q10 0 10 -10 m-140 10 h10 m110 0 h10 m23 -220 h-3"/>
+         <polygon points="199 17 207 13 207 21"/>
+         <polygon points="199 17 191 13 191 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#operador_relacional" title="operador_relacional">operador_relacional</a></div>
+               <div>         ::= <a href="#IGUALDAD" title="IGUALDAD">IGUALDAD</a></div>
+               <div>           | <a href="#DIFERENTE" title="DIFERENTE">DIFERENTE</a></div>
+               <div>           | <a href="#MAYOR" title="MAYOR">MAYOR</a></div>
+               <div>           | <a href="#MENOR" title="MENOR">MENOR</a></div>
+               <div>           | <a href="#MAYOR_IGUAL" title="MAYOR_IGUAL">MAYOR_IGUAL</a></div>
+               <div>           | <a href="#MENOR_IGUAL" title="MENOR_IGUAL">MENOR_IGUAL</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#operacion_relacional" title="operacion_relacional">operacion_relacional</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="operador_sr">operador_sr:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="159" height="81">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#SUMA" xlink:title="SUMA">
+            <rect x="51" y="3" width="54" height="32"/>
+            <rect x="49" y="1" width="54" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">SUMA</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#RESTA" xlink:title="RESTA">
+            <rect x="51" y="47" width="60" height="32"/>
+            <rect x="49" y="45" width="60" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">RESTA</text></a><path class="line" d="m17 17 h2 m20 0 h10 m54 0 h10 m0 0 h6 m-100 0 h20 m80 0 h20 m-120 0 q10 0 10 10 m100 0 q0 -10 10 -10 m-110 10 v24 m100 0 v-24 m-100 24 q0 10 10 10 m80 0 q10 0 10 -10 m-90 10 h10 m60 0 h10 m23 -44 h-3"/>
+         <polygon points="149 17 157 13 157 21"/>
+         <polygon points="149 17 141 13 141 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#operador_sr" title="operador_sr">operador_sr</a></div>
+               <div>         ::= <a href="#SUMA" title="SUMA">SUMA</a></div>
+               <div>           | <a href="#RESTA" title="RESTA">RESTA</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#operacion_matematica_literal" title="operacion_matematica_literal">operacion_matematica_literal</a></li>
+            <li><a href="#operacion_matematica_numerica" title="operacion_matematica_numerica">operacion_matematica_numerica</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="operador_md">operador_md:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="227" height="81">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MULTIPLICACION" xlink:title="MULTIPLICACION">
+            <rect x="51" y="3" width="128" height="32"/>
+            <rect x="49" y="1" width="128" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">MULTIPLICACION</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#DIVISION" xlink:title="DIVISION">
+            <rect x="51" y="47" width="78" height="32"/>
+            <rect x="49" y="45" width="78" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">DIVISION</text></a><path class="line" d="m17 17 h2 m20 0 h10 m128 0 h10 m-168 0 h20 m148 0 h20 m-188 0 q10 0 10 10 m168 0 q0 -10 10 -10 m-178 10 v24 m168 0 v-24 m-168 24 q0 10 10 10 m148 0 q10 0 10 -10 m-158 10 h10 m78 0 h10 m0 0 h50 m23 -44 h-3"/>
+         <polygon points="217 17 225 13 225 21"/>
+         <polygon points="217 17 209 13 209 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#operador_md" title="operador_md">operador_md</a></div>
+               <div>         ::= <a href="#MULTIPLICACION" title="MULTIPLICACION">MULTIPLICACION</a></div>
+               <div>           | <a href="#DIVISION" title="DIVISION">DIVISION</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#tl" title="tl">tl</a></li>
+            <li><a href="#tn" title="tn">tn</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="nombre_figura">nombre_figura:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="299" height="257">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ELIPSE" xlink:title="ELIPSE">
+            <rect x="51" y="3" width="64" height="32"/>
+            <rect x="49" y="1" width="64" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">ELIPSE</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#CIRCULO" xlink:title="CIRCULO">
+            <rect x="51" y="47" width="76" height="32"/>
+            <rect x="49" y="45" width="76" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">CIRCULO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PARALELOGRAMO" xlink:title="PARALELOGRAMO">
+            <rect x="51" y="91" width="128" height="32"/>
+            <rect x="49" y="89" width="128" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="109">PARALELOGRAMO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#RECTANGULO" xlink:title="RECTANGULO">
+            <rect x="51" y="135" width="104" height="32"/>
+            <rect x="49" y="133" width="104" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="153">RECTANGULO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ROMBO" xlink:title="ROMBO">
+            <rect x="51" y="179" width="64" height="32"/>
+            <rect x="49" y="177" width="64" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="197">ROMBO</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#RECTANGULO_REDONDEADO" xlink:title="RECTANGULO_REDONDEADO">
+            <rect x="51" y="223" width="200" height="32"/>
+            <rect x="49" y="221" width="200" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="241">RECTANGULO_REDONDEADO</text></a><path class="line" d="m17 17 h2 m20 0 h10 m64 0 h10 m0 0 h136 m-240 0 h20 m220 0 h20 m-260 0 q10 0 10 10 m240 0 q0 -10 10 -10 m-250 10 v24 m240 0 v-24 m-240 24 q0 10 10 10 m220 0 q10 0 10 -10 m-230 10 h10 m76 0 h10 m0 0 h124 m-230 -10 v20 m240 0 v-20 m-240 20 v24 m240 0 v-24 m-240 24 q0 10 10 10 m220 0 q10 0 10 -10 m-230 10 h10 m128 0 h10 m0 0 h72 m-230 -10 v20 m240 0 v-20 m-240 20 v24 m240 0 v-24 m-240 24 q0 10 10 10 m220 0 q10 0 10 -10 m-230 10 h10 m104 0 h10 m0 0 h96 m-230 -10 v20 m240 0 v-20 m-240 20 v24 m240 0 v-24 m-240 24 q0 10 10 10 m220 0 q10 0 10 -10 m-230 10 h10 m64 0 h10 m0 0 h136 m-230 -10 v20 m240 0 v-20 m-240 20 v24 m240 0 v-24 m-240 24 q0 10 10 10 m220 0 q10 0 10 -10 m-230 10 h10 m200 0 h10 m23 -220 h-3"/>
+         <polygon points="289 17 297 13 297 21"/>
+         <polygon points="289 17 281 13 281 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#nombre_figura" title="nombre_figura">nombre_figura</a></div>
+               <div>         ::= <a href="#ELIPSE" title="ELIPSE">ELIPSE</a></div>
+               <div>           | <a href="#CIRCULO" title="CIRCULO">CIRCULO</a></div>
+               <div>           | <a href="#PARALELOGRAMO" title="PARALELOGRAMO">PARALELOGRAMO</a></div>
+               <div>           | <a href="#RECTANGULO" title="RECTANGULO">RECTANGULO</a></div>
+               <div>           | <a href="#ROMBO" title="ROMBO">ROMBO</a></div>
+               <div>           | <a href="#RECTANGULO_REDONDEADO" title="RECTANGULO_REDONDEADO">RECTANGULO_REDONDEADO</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_figura_bloque" title="instruccion_figura_bloque">instruccion_figura_bloque</a></li>
+            <li><a href="#instruccion_figura_mientras" title="instruccion_figura_mientras">instruccion_figura_mientras</a></li>
+            <li><a href="#instruccion_figura_si" title="instruccion_figura_si">instruccion_figura_si</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="nombre_letra">nombre_letra:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="247" height="169">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ARIAL" xlink:title="ARIAL">
+            <rect x="51" y="3" width="56" height="32"/>
+            <rect x="49" y="1" width="56" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="21">ARIAL</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#TIMES_NEW_ROMAN" xlink:title="TIMES_NEW_ROMAN">
+            <rect x="51" y="47" width="148" height="32"/>
+            <rect x="49" y="45" width="148" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="65">TIMES_NEW_ROMAN</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#COMIC_SANS" xlink:title="COMIC_SANS">
+            <rect x="51" y="91" width="104" height="32"/>
+            <rect x="49" y="89" width="104" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="109">COMIC_SANS</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#VERDANA" xlink:title="VERDANA">
+            <rect x="51" y="135" width="78" height="32"/>
+            <rect x="49" y="133" width="78" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="59" y="153">VERDANA</text></a><path class="line" d="m17 17 h2 m20 0 h10 m56 0 h10 m0 0 h92 m-188 0 h20 m168 0 h20 m-208 0 q10 0 10 10 m188 0 q0 -10 10 -10 m-198 10 v24 m188 0 v-24 m-188 24 q0 10 10 10 m168 0 q10 0 10 -10 m-178 10 h10 m148 0 h10 m-178 -10 v20 m188 0 v-20 m-188 20 v24 m188 0 v-24 m-188 24 q0 10 10 10 m168 0 q10 0 10 -10 m-178 10 h10 m104 0 h10 m0 0 h44 m-178 -10 v20 m188 0 v-20 m-188 20 v24 m188 0 v-24 m-188 24 q0 10 10 10 m168 0 q10 0 10 -10 m-178 10 h10 m78 0 h10 m0 0 h70 m23 -132 h-3"/>
+         <polygon points="237 17 245 13 245 21"/>
+         <polygon points="237 17 229 13 229 21"/></svg><p>
+         <div class="ebnf"><code>
+               <div><a href="#nombre_letra" title="nombre_letra">nombre_letra</a></div>
+               <div>         ::= <a href="#ARIAL" title="ARIAL">ARIAL</a></div>
+               <div>           | <a href="#TIMES_NEW_ROMAN" title="TIMES_NEW_ROMAN">TIMES_NEW_ROMAN</a></div>
+               <div>           | <a href="#COMIC_SANS" title="COMIC_SANS">COMIC_SANS</a></div>
+               <div>           | <a href="#VERDANA" title="VERDANA">VERDANA</a></div></code></div>
+      </p>
+      <p>referenced by:
+         <ul>
+            <li><a href="#instruccion_letra_bloque" title="instruccion_letra_bloque">instruccion_letra_bloque</a></li>
+            <li><a href="#instruccion_letra_mientras" title="instruccion_letra_mientras">instruccion_letra_mientras</a></li>
+            <li><a href="#instruccion_letra_si" title="instruccion_letra_si">instruccion_letra_si</a></li>
+         </ul>
+      </p><br /><hr />
+      <p>
+         <table border="0" class="signature">
+            <tr>
+               <td style="width: 100%"> </td>
+               <td valign="top">
+                  <nobr class="signature">... generated by <a name="Railroad-Diagram-Generator" class="signature" title="https://www.bottlecaps.de/rr/ui" href="https://www.bottlecaps.de/rr/ui" target="_blank">RR - Railroad Diagram Generator</a></nobr>
+               </td>
+               <td><a name="Railroad-Diagram-Generator" title="https://www.bottlecaps.de/rr/ui" href="https://www.bottlecaps.de/rr/ui" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                        <g transform="scale(0.178)">
+                           <circle cx="45" cy="45" r="45" style="stroke:none; fill:#FFCC00"/>
+                           <circle cx="45" cy="45" r="42" style="stroke:#332900; stroke-width:2px; fill:#FFCC00"/>
+                           <line x1="15" y1="15" x2="75" y2="75" stroke="#332900" style="stroke-width:9px;"/>
+                           <line x1="15" y1="75" x2="75" y2="15" stroke="#332900" style="stroke-width:9px;"/>
+                           <text x="7" y="54" style="font-size:26px; font-family:Arial, Sans-serif; font-weight:bold; fill: #332900">R</text>
+                           <text x="64" y="54" style="font-size:26px; font-family:Arial, Sans-serif; font-weight:bold; fill: #332900">R</text>
+                        </g></svg></a></td>
+            </tr>
+         </table>
+      </p>
+   </body>
+</html>
